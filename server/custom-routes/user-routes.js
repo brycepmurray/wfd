@@ -1,32 +1,20 @@
-let Boards = require('../models/board')
+//let Menus = require('../models/menu')
 
-module.exports = {
-  userBoards: {
-    path: '/userboards',
-    reqType: 'get',
-    method(req, res, next){
-      let action = 'Find User Boards'
-      Boards.find({creatorId: req.session.uid})
-        .then(boards => {
-          res.send(handleResponse(action, boards))
-        }).catch(error => {
-          return next(handleResponse(action, null, error))
-        })
-    }
-  },
-  sharedBoards: {
-    path: '/sharedBoards',
-    reqType: 'get',
-    method(req, res, next){
-      Boards.find({collaborators: { $in: req.session.uid}})
-        .then(boards => {
-          res.send(handleResponse(action, boards))
-        }).catch(error => {
-          return next(handleResponse(action, null, error))
-        })
-    }
-  }
-}
+// module.exports = {
+//   userMenus: {
+//     path: '/userMenus',
+//     reqType: 'get',
+//     method(req, res, next){
+//       let action = 'Find User Menus'
+//       Menus.find({creatorId: req.session.uid})
+//         .then(menus => {
+//           res.send(handleResponse(action, menus))
+//         }).catch(error => {
+//           return next(handleResponse(action, null, error))
+//         })
+//     }
+//   },
+// }
 
 
 function handleResponse(action, data, error) {

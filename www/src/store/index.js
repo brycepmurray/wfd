@@ -1,6 +1,8 @@
 import axios from 'axios'
 import vue from 'vue'
 import vuex from 'vuex'
+import router from 'router'
+import debug from 'util'
 
 let api = axios.create({
   baseURL: 'http://localhost:3000/api/',
@@ -17,63 +19,70 @@ vue.use(vuex)
 
 var store = new vuex.Store({
   state: {
-    boards: [{name: 'This is total rubbish'}],
-    activeBoard: {},
-    error: {}
+    error: {},
+    user: {},
+    menus: []
   },
   mutations: {
-    setBoards(state, data){
-      state.boards = data
-    },
-    handleError(state, err){
-      state.error = err
-    }
+    setUser(state, user) {
+      state.user = user}
   },
+
   actions: {
-    //when writing your auth routes (login, logout, register) be sure to use auth instead of api for the posts
+    //LOGIN FUNCTIONS
+    login({ commit, dispatch }, payload) {
 
-    getBoards({commit, dispatch}) {
-      api('boards')
+      auth.post('login', payload)
         .then(res => {
-          commit('setBoards', res.data.data)
+          commit('setUser', res.data.data)
+          router.push({ name: 'Results' })
+          console.log(res)
         })
-        .catch(err=>{
+        .catch(err => {
           commit('handleError', err)
         })
     },
-    getBoard({commit, dispatch},id) {
-      api('boards/' + id)
+    register({ commit, dispatch }, payload) {debugger
+
+      auth.post('register', payload)
         .then(res => {
-          commit('setActiveBoard', res.data.data)
+          commit('setUser', res.data.data)
+          router.push({ name: 'Results' })
+          console.log('User account successfully created')
         })
-        .catch(err=>{
+        .catch(err => {
           commit('handleError', err)
         })
+
     },
-    createBoard({commit, dispatch}, board) {
-      debugger
-      api.post('boards/',board)
+    logout({ commit, dispatch }) {
+      auth.delete('logout')
         .then(res => {
-          dispatch('getBoards')
+          commit('setUser', {})
+          router.push({ name: 'Login' })
+          console.log('User session terminated')
         })
-        .catch(err=>{
+        .catch(err => {
           commit('handleError', err)
         })
+
     },
-    removeBoard({commit, dispatch}, board) {
-      api.delete('boards/'+board._id)
+    authenticate({ commit, dispatch }) {
+      auth.get('authenticate')
         .then(res => {
-          this.getBoards()
+
+          router.push({ name: 'Results' })
+          commit('setUser', res.data.data)
         })
-        .catch(err=>{
+        .catch(err => {
+
           commit('handleError', err)
+          router.push({ name: 'Login' })
         })
-    },
-    handleError({commit, dispatch}, err){
-      commit('handleError', err)
+
     }
-  }
 
+  }
 })
 
 
