@@ -5,85 +5,98 @@ import router from 'router'
 import debug from 'util'
 
 let api = axios.create({
-  baseURL: 'http://localhost:3000/api/',
-  timeout: 2000,
-  withCredentials: true
+    baseURL: 'http://localhost:3000/api/',
+    timeout: 2000,
+    withCredentials: true
 })
 
 let auth = axios.create({
-  baseURL: 'http://localhost:3000/',
-  timeout: 2000,
-  withCredentials: true
+    baseURL: 'http://localhost:3000/',
+    timeout: 2000,
+    withCredentials: true
 })
 vue.use(vuex)
 
 var store = new vuex.Store({
-  state: {
-    error: {},
-    user: {},
-    menus: []
-  },
-  mutations: {
-    setUser(state, user) {
-      state.user = user}
-  },
+            state: {
+                myRecipes: [],
+                results: []
+            },
+            mutations: {
+                setResults(state, results) {
+                    state.results = results
+                }
+            },
 
-  actions: {
-    //LOGIN FUNCTIONS
-    login({ commit, dispatch }, payload) {
+            actions: {
+                getRecipes({ commit, dispatch }, SEARCHPARAM) {
+                    var url = '//bcw-getter.herokuapp.com/?url=';
+                    var url2 = 'https://api.edamam.com/search?q=chicken&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5' + SEARCHPARAM;
+                    var apiUrl = url + encodeURIComponent(url2);
+                    $.get(apiUrl).then(data => {
+                            $('#get-recipe-button').text('LOADING....');
 
-      auth.post('login', payload)
-        .then(res => {
-          commit('setUser', res.data.data)
-          router.push({ name: 'Results' })
-          console.log(res)
-        })
-        .catch(err => {
-          commit('handleError', err)
-        })
-    },
-    register({ commit, dispatch }, payload) {debugger
+                            return $.getJSON(apiUrl).then(function(response) {
+                                var recipeList = response.results.map(function(recipe) {
+                                    return {
+                                        recipeName: recipe.label,
+                                        recipeImageUrl: recipe.imageUrl,
+                                        recipeUrl: recipe.url,
+                                        recipeServings: recipe.yield,
+                                        recipeDietLabels: recipe.dietLabels[],
+                                        recipeHealthLabels: recipe.healthLabels[],
+                                        recipeIndredients: recipe.ingredientLines[],
+                                        recipeCalories: recipe.calories
 
-      auth.post('register', payload)
-        .then(res => {
-          commit('setUser', res.data.data)
-          router.push({ name: 'Results' })
-          console.log('User account successfully created')
-        })
-        .catch(err => {
-          commit('handleError', err)
-        })
+                                    };
+                                })
+                                $('#get-recipe-button').text('GET RECIPES');
+                                return recipeList;
+                            })
+                        },
+                        register({ commit, dispatch }, payload) {
+                            debugger
 
-    },
-    logout({ commit, dispatch }) {
-      auth.delete('logout')
-        .then(res => {
-          commit('setUser', {})
-          router.push({ name: 'Login' })
-          console.log('User session terminated')
-        })
-        .catch(err => {
-          commit('handleError', err)
-        })
+                            auth.post('register', payload)
+                                .then(res => {
+                                    commit('setUser', res.data.data)
+                                    router.push({ name: 'Results' })
+                                    console.log('User account successfully created')
+                                })
+                                .catch(err => {
+                                    commit('handleError', err)
+                                })
 
-    },
-    authenticate({ commit, dispatch }) {
-      auth.get('authenticate')
-        .then(res => {
+                        },
+                        logout({ commit, dispatch }) {
+                            auth.delete('logout')
+                                .then(res => {
+                                    commit('setUser', {})
+                                    router.push({ name: 'Login' })
+                                    console.log('User session terminated')
+                                })
+                                .catch(err => {
+                                    commit('handleError', err)
+                                })
 
-          router.push({ name: 'Results' })
-          commit('setUser', res.data.data)
-        })
-        .catch(err => {
+                        },
+                        authenticate({ commit, dispatch }) {
+                            auth.get('authenticate')
+                                .then(res => {
 
-          commit('handleError', err)
-          router.push({ name: 'Login' })
-        })
+                                    router.push({ name: 'Results' })
+                                    commit('setUser', res.data.data)
+                                })
+                                .catch(err => {
 
-    }
+                                    commit('handleError', err)
+                                    router.push({ name: 'Login' })
+                                })
 
-  }
-})
+                        }
+
+                    }
+                })
 
 
-export default store
+            export default store
