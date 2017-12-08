@@ -1,6 +1,9 @@
 <template>
   <div>
+    <form @submit.prevent= "getRecipes()" >
     <input class="search" type="text" v-model="recipe" placeholder="Search..">
+    <button type="submit">Search</button>
+  </form>
   </div>
 </template>
 
@@ -17,8 +20,9 @@
     computed: {
     },
     methods: {
-      search(){
-        this.$store.dispatch('getrecipes', this.recipe)
+      getRecipes(){
+        debugger
+        this.$store.dispatch('getRecipes', this.recipe)
       }
     }
   }

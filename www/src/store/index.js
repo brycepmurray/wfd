@@ -18,9 +18,8 @@ let auth = axios.create({
 
 // used to make an external api call to get recipes
 let recipeApi = axios.create({
-    baseURL: 'https://api.edamam.com/&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b&search?q=',
-    timeout: 3000,
-    withCredentials: true
+    baseURL: 'https://api.edamam.com/search?q=',
+    timeout: 3000
 
 })
 
@@ -39,8 +38,10 @@ var store = new vuex.Store({
 
             actions: {
                 getRecipes({ commit, dispatch }, recipe) {
-                    recipeApi(recipe)
+                    debugger
+                    recipeApi(recipe + '&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5&from=0&to=100')
                     .then(data => {
+                        commit("setResults", data.results)
                         console.log(data)
                     })
                     .catch(err => {
