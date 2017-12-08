@@ -15,6 +15,14 @@ let auth = axios.create({
     timeout: 2000,
     withCredentials: true
 })
+
+let recipeApi = axios.create({
+    baseURL: 'https://api.edamam.com/search?q=',
+    timeout: 3000,
+    withCredentials: true
+
+})
+
 vue.use(vuex)
 
 var store = new vuex.Store({
@@ -29,30 +37,30 @@ var store = new vuex.Store({
             },
 
             actions: {
-                getRecipes({ commit, dispatch }, SEARCHPARAM) {
-                    var url = '//bcw-getter.herokuapp.com/?url=';
-                    var url2 = 'https://api.edamam.com/search?q=chicken&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5' + SEARCHPARAM;
-                    var apiUrl = url + encodeURIComponent(url2);
-                    $.get(apiUrl).then(data => {
-                            $('#get-recipe-button').text('LOADING....');
+                getRecipes({ commit, dispatch }, recipe) {
+                   
+                    var url = 'https://api.edamam.com/&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b&search?q=' + recipe;
+                    
+                    // $.get(url).then(data => {
+                    //         $('#get-recipe-button').text('LOADING....');
 
-                            return $.getJSON(apiUrl).then(function(response) {
-                                var recipeList = response.results.map(function(recipe) {
-                                    return {
-                                        recipeName: recipe.label,
-                                        recipeImageUrl: recipe.imageUrl,
-                                        recipeUrl: recipe.url,
-                                        recipeServings: recipe.yield,
-                                        recipeDietLabels: recipe.dietLabels[],
-                                        recipeHealthLabels: recipe.healthLabels[],
-                                        recipeIndredients: recipe.ingredientLines[],
-                                        recipeCalories: recipe.calories
+                    //         return $.getJSON(apiUrl).then(function(response) {
+                    //             var recipeList = response.results.map(function(recipe) {
+                    //                 return {
+                    //                     recipeName: recipe.label,
+                    //                     recipeImageUrl: recipe.imageUrl,
+                    //                     recipeUrl: recipe.url,
+                    //                     recipeServings: recipe.yield,
+                    //                     recipeDietLabels: recipe.dietLabels[],
+                    //                     recipeHealthLabels: recipe.healthLabels[],
+                    //                     recipeIndredients: recipe.ingredientLines[],
+                    //                     recipeCalories: recipe.calories
 
-                                    };
-                                })
-                                $('#get-recipe-button').text('GET RECIPES');
-                                return recipeList;
-                            })
+                    //                 };
+                    //             })
+                    //             $('#get-recipe-button').text('GET RECIPES');
+                    //             return recipeList;
+                    //         })
                         },
                         register({ commit, dispatch }, payload) {
                             debugger
