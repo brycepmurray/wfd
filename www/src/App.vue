@@ -1,19 +1,7 @@
 <template>
 <div>
-    <ul>
-        <li><a href="#home">WFD</a></li>
-        <input class="search" type="text" v-model="recipe" placeholder="Search..">
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
-          <div class="dropdown-content">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-        </li>
-      </ul>
+  <navbar></navbar>
   <div id="app">
-    
     <error></error>
     <router-view></router-view>
   </div>
@@ -26,10 +14,12 @@
 
 <script>
 import Error from './components/Error'
+import Navbar from './components/Navbar'
 export default {
   name: 'app',
   components:{
-    Error
+    Error,
+    Navbar
   }
 }
 </script>
