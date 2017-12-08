@@ -1,5 +1,4 @@
 var server = require('./config/dev-server')
-
 let mongoose = require('mongoose')
 let connection = mongoose.connection;
 

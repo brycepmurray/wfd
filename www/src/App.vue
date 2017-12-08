@@ -2,7 +2,7 @@
 <div>
     <ul>
         <li><a href="#home">WFD</a></li>
-        <input class="search" type="text" placeholder="Search..">
+        <input class="search" type="text" v-model="recipe" placeholder="Search..">
         <li class="dropdown">
           <a href="javascript:void(0)" class="dropbtn">Dropdown</a>
           <div class="dropdown-content">
