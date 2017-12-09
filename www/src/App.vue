@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div id="app">
       <navbar></navbar>
       <router-view></router-view>
@@ -38,7 +38,9 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
+    background-image: url('http://www.myfreetextures.com/wp-content/uploads/2014/10/seamless-wood-texture-2.jpg')
   }
+
 
 
   footer {
