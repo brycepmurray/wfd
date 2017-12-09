@@ -45,17 +45,16 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-
-li a:hover {
-  background-color: #111;
-}
-
 .logout{
-  position: fixed;
-  right: 5px
+  float: right;
 }
 .logout:hover{
   color: red;
 
 }
+li a:hover {
+  background-color: #111;
+}
+
+
 </style>
