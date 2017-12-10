@@ -7,7 +7,9 @@
 
     <footer>
       <h6>Coolio, Julio</h6>
-    </footer>
+      <span><button>Favorites</button><button>Hate list</button></span>
+      
+            </footer>
   </div>
 </template>
 
@@ -41,11 +43,16 @@
     background-image: url('http://www.myfreetextures.com/wp-content/uploads/2014/10/seamless-wood-texture-2.jpg')
   }
 
-
+button{
+  float: right
+}
 
   footer {
     height: 10vh;
     width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
     background-color: #333;
     color: white
   }
