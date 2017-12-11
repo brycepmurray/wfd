@@ -6,7 +6,7 @@
                     <h1>Mon</h1>
                 </div>
                 <div class="col-xs-9">
-                    <h2>Dinner here</h2>
+                    <h1>Dinner here</h1>
                 </div>
             </div>
             <div class="row">
@@ -14,7 +14,7 @@
                     <h1>Tue</h1>
                 </div>
                 <div class="col-xs-9">
-                    <h2>Dinner here</h2>
+                    <h1>Dinner here</h1>
                 </div>
             </div>
             <div class="row">
@@ -22,7 +22,7 @@
                     <h1>Wed</h1>
                 </div>
                 <div class="col-xs-9">
-                    <h2>Dinner here</h2>
+                    <h1>Dinner here</h1>
                 </div>
             </div>
             <div class="row">
@@ -30,7 +30,7 @@
                     <h1>Thur</h1>
                 </div>
                 <div class="col-xs-9">
-                    <h2>Dinner here</h2>
+                    <h1>Dinner here</h1>
                 </div>
             </div>
             <div class="row">
@@ -38,7 +38,7 @@
                     <h1>Fri</h1>
                 </div>
                 <div class="col-xs-9">
-                    <h2>Dinner here</h2>
+                    <h1>Dinner here</h1>
                 </div>
             </div>
             <div class="row">
@@ -46,7 +46,7 @@
                     <h1 class="days">Sat</h1>
                 </div>
                 <div class="col-xs-9">
-                    <h2>Dinner here</h2>
+                    <h1>Dinner here</h1>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +54,7 @@
                     <h1>Sun</h1>
                 </div>
                 <div class="col-xs-9">
-                    <h2>Dinner here</h2>
+                    <h1>Dinner here</h1>
                 </div>
             </div>
 
