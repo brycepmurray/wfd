@@ -109,12 +109,7 @@
         }
     
         .form-control{
-            text-align: center;
-            
-        }
-    
-        .login{
-            background-color: rgba(2, 74, 102, 0.11)
+            text-align: center;   
         }
     
     </style>

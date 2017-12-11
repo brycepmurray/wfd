@@ -50,14 +50,10 @@ var store = new vuex.Store({
                 .catch(err => {
                     commit('handleError', err)
                 })
-
-
-
-
         },
+
+
         register({ commit, dispatch }, payload) {
-
-
             auth.post('register', payload)
                 .then(res => {
                     commit('setUser', res.data.data)
@@ -69,6 +65,19 @@ var store = new vuex.Store({
                 })
 
         },
+        login({ commit, dispatch }, payload) {
+            
+                        auth.post('login', payload)
+                            .then(res => {
+                                commit('setUser', res.data.data)
+                                router.push({ name: 'Results' })
+                                console.log(res)
+                            })
+                            .catch(err => {
+                                commit('handleError', err)
+                            })
+                    },
+
         logout({ commit, dispatch }) {
             auth.delete('logout')
                 .then(res => {

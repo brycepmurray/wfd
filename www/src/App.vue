@@ -7,8 +7,7 @@
 
     <footer>
       <h6>Coolio, Julio</h6>
-      
-            </footer>
+    </footer>
   </div>
 </template>
 
