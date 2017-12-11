@@ -7,7 +7,6 @@
 
     <footer>
       <h6>Coolio, Julio</h6>
-      <span><button>Favorites</button><button>Hate list</button></span>
       
             </footer>
   </div>

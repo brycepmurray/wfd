@@ -6,6 +6,7 @@
         <button class="submit" type="submit">Search</button>
       </form>
     </div>
+    <calendar></calendar>
     <div class="row text-center">
       <div class="card col-xs-12 col-md-6 col-lg-6" style="width: 20rem;" v-for='result in results'>
         <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
@@ -20,6 +21,7 @@
 </template>
 
 <script>
+  import Calendar from '../components/Calendar'
   export default {
     name: 'results',
     data() {
@@ -38,6 +40,9 @@
       getRecipes() {
         this.$store.dispatch('getRecipes', this.recipe)
       }
+    },
+    components:{
+      Calendar
     }
   }
 </script>
@@ -60,8 +65,8 @@
     margin: 10px;
     height: 400px;
     background-color: whitesmoke;
-
   }
+  
 .card:hover{
   outline: 5px solid rgb(211, 218, 214);
   cursor: pointer;

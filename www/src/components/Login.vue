@@ -81,7 +81,7 @@
             },
             computed: {
                 error() {
-                    return this.$store.state.error.message
+                    return this.$store.state.error
                 }
             }
         }

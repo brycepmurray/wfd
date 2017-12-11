@@ -1,13 +1,13 @@
 <template>
   <div>
       <ul>
-          <li><a class="active" href="#home">Home</a></li>
-          <li><a href="#news">News</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a class="home" href="#">Home</a></li>
+          <li><a href="">Contact</a></li>
           <li class="logout"><a href="#login">Log Out</a></li>
         </ul>
       </div>
 </template>
+
 
 
 <script>
