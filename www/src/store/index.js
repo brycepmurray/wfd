@@ -27,7 +27,7 @@ vue.use(vuex)
 
 var store = new vuex.Store({
     state: {
-        myRecipes: [],
+        cookBook: [],
         results: [],
         err: {}
     },
@@ -35,9 +35,15 @@ var store = new vuex.Store({
         setResults(state, results) {
             state.results = results
         },
-        handleError(state, err){
+        handleError(state, err) {
             state.err = err
+        },
+        setCookBook(state, recipe) {
+            debugger
+            state.cookBook = recipe
         }
+
+    
     },
 
     actions: {
@@ -51,8 +57,33 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
+        addToCookBook({ commit, dispatch }, payload) {
+            debugger
+            api.post("cookbook/", payload.recipe)
+                .then(res => {
+                    dispatch("getCookBook")
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
+        },
+
+        
+        getCookBook({ commit, dispatch }) {
+            debugger
+            api("cookbook")
+                .then(res => {
+                    commit('setCookBook', res.data.data)
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
+        },
 
 
+
+
+        //Login and Register actions
         register({ commit, dispatch }, payload) {
             debugger
             auth.post('register', payload)
@@ -68,16 +99,16 @@ var store = new vuex.Store({
         },
         login({ commit, dispatch }, payload) {
             debugger
-                        auth.post('login', payload)
-                            .then(res => {
-                                commit('setUser', res.data.data)
-                                router.push({ name: 'Results' })
-                                console.log(res)
-                            })
-                            .catch(err => {
-                                commit('handleError', err)
-                            })
-                    },
+            auth.post('login', payload)
+                .then(res => {
+                    commit('setUser', res.data.data)
+                    router.push({ name: 'Results' })
+                    console.log(res)
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
+        },
 
         logout({ commit, dispatch }) {
             auth.delete('logout')

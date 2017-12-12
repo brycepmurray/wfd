@@ -14,15 +14,14 @@
       <div class="card col-lg-12" style="width: 20rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
         <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
         <div class="card-block">
-          <span class="glyphicon glyphicon-star">Favorite
-
-          </span>
           <h5 class="card-title">
             <strong>{{result.recipe.label}}</strong>
           </h5>
           <p class="card-text" v-if="result.recipe.source == 'No Recipes'">Yummy!!</p>
           <p class="card-text" v-else>{{result.recipe.source}}</p>
           <a :href="result.recipe.url" class="btn btn-primary to">View Recipe</a>
+          <button class="btn btn-warning" @click="addToCookBook(result)">Add to Cookbook
+          </button>
         </div>
       </div>
     </div>
@@ -48,9 +47,13 @@
     methods: {
       getRecipes() {
         this.$store.dispatch('getRecipes', this.recipe)
+      },
+      addToCookBook(result){
+        
+        this.$store.dispatch('addToCookBook', result)
       }
     },
-    moving(event){
+    moving(event) {
       console.log(event)
       event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
       console.log('We are moving')
@@ -111,11 +114,12 @@
   .glyphicon:hover {
     color: gold
   }
-  .static{
-    position:fixed;
+
+  .static {
+    position: fixed;
     right: -35px;
     z-index: 1;
-    
+
 
   }
 </style>
