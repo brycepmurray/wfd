@@ -43,7 +43,7 @@ var store = new vuex.Store({
             state.cookBook = recipe
         }
 
-    
+
     },
 
     actions: {
@@ -57,9 +57,9 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
-        addToCookBook({ commit, dispatch }, payload) {
+        addToCookBook({ commit, dispatch }, recipe) {
             debugger
-            api.post("cookbook/", payload.recipe)
+            api.post("recipes", recipe._id)
                 .then(res => {
                     dispatch("getCookBook")
                 })
@@ -68,7 +68,7 @@ var store = new vuex.Store({
                 })
         },
 
-        
+
         getCookBook({ commit, dispatch }) {
             debugger
             api("cookbook")
@@ -85,7 +85,6 @@ var store = new vuex.Store({
 
         //Login and Register actions
         register({ commit, dispatch }, payload) {
-            debugger
             auth.post('register', payload)
                 .then(res => {
                     commit('setUser', res.data.data)

@@ -1,6 +1,6 @@
 <template>
-    <div class="favorites">
-
+    <div class="cookbook">
+        Test Message
 
     </div>
 </template>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    name: 'favorites',
+    name: 'cookbook',
     data(){
         return {}
     },

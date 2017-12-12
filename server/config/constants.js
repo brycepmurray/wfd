@@ -13,6 +13,11 @@ const models = {
     endpoint: 'users',
     preventDefaultApi: true,
     useCustomRoutes: true
+  },
+  recipe: {
+    name: 'Recipe',
+    endpoint:'recipes'
+    // useCustomRoutes: true
   }
 }
 

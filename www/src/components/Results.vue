@@ -48,15 +48,24 @@
       getRecipes() {
         this.$store.dispatch('getRecipes', this.recipe)
       },
-      addToCookBook(result){
-        
-        this.$store.dispatch('addToCookBook', result)
+      addToCookBook(result) {
+        var recipe = {
+          label: result.label,
+          imageUrl: result.image,
+          url: result.url,
+          servings: result.yield,
+          dietLabels: result.dietLabels,
+          healthLabels: result.healthLabels,
+          indredients: result.ingredientLines,
+          calories: result.calories
+        }
+        this.$store.dispatch('addToCookBook', recipe)
+      },
+      moving(event) {
+        console.log(event)
+        event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
+        console.log('We are moving')
       }
-    },
-    moving(event) {
-      console.log(event)
-      event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
-      console.log('We are moving')
     },
     components: {
       Calendar
