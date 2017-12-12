@@ -11,7 +11,7 @@
         <calendar>
         </calendar>
       </div>
-      <div class="card col-lg-5" style="width: 20rem;" v-for='result in results'>
+      <div class="card col-lg-5" style="width: 20rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
         <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
         <div class="card-block">
           <span class="glyphicon glyphicon-star">Favorite
@@ -49,6 +49,11 @@
       getRecipes() {
         this.$store.dispatch('getRecipes', this.recipe)
       }
+    },
+    moving(event){
+      console.log(event)
+      event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
+      console.log('We are moving')
     },
     components: {
       Calendar
@@ -108,7 +113,7 @@
   }
   .static{
     position:fixed;
-    right: 0px;
+    right: -35px;
     z-index: 1;
     
 
