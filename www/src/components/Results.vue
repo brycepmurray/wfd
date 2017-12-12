@@ -7,11 +7,11 @@
       </form>
     </div>
     <div class="row text-center">
-      <div class="col-lg-5 static">
+      <div class="col-lg-3 static">
         <calendar>
         </calendar>
       </div>
-      <div class="card col-lg-5" style="width: 20rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
+      <div class="card col-lg-12" style="width: 20rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
         <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
         <div class="card-block">
           <span class="glyphicon glyphicon-star">Favorite
