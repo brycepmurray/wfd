@@ -69,6 +69,7 @@
                     this.loginForm = !this.loginForm
                 },
                 submitLogin() {
+                    debugger
                     this.$store.dispatch('login', this.login)
                     this.login = {
                         email: '',
@@ -92,7 +93,9 @@
             opacity: .8;
             transition: all .2s linear;
             color: rgb(8, 76, 121);
-            font-size: 1.2em
+            font-size: 1.2em;
+            margin-right: 60%;
+            
         }
     
         .action:hover {

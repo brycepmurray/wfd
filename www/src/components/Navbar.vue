@@ -14,7 +14,7 @@
         </button>
       </li>
       <li class="logout">
-        <a href="#login">Log Out</a>
+        <a @click="logout">Log Out</a>
       </li>
     </ul>
     <!-- <footer>
@@ -34,7 +34,11 @@
       }
     },
     computed: {},
-    methods: {},
+    methods: {
+      logout() {
+        this.$store.dispatch('logout')
+      }
+    },
     components: {}
   }
 </script>
