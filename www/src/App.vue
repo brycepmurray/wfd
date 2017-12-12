@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div id="app">
       <navbar></navbar>
       <router-view></router-view>
@@ -46,7 +46,7 @@ button{
 }
 
   footer {
-    height: 10vh;
+    height: 8vh;
     width: 100%;
     position: fixed;
     bottom: 0px;

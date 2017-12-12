@@ -113,8 +113,9 @@
   }
   .static{
     position:fixed;
-    right: -35px;
+    right: 6px;
     z-index: 1;
+    top: 77px;
     
 
   }
