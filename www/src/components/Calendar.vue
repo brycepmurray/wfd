@@ -138,9 +138,9 @@
 
     <!-- <div class="calendar">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row text center">
                 <div class="col-xs-2">
-                    <h1>Mon</h1>
+                    <h1>M</h1>
                 </div>
                 <div class="col-xs-9">
                     <h1>Dinner here</h1>
@@ -148,7 +148,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-2">
-                    <h1>Tue</h1>
+                    <h1>T</h1>
                 </div>
                 <div class="col-xs-9">
                     <h1>Dinner here</h1>
@@ -156,7 +156,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-2">
-                    <h1>Wed</h1>
+                    <h1>W</h1>
                 </div>
                 <div class="col-xs-9">
                     <h1>Dinner here</h1>
@@ -164,7 +164,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-2">
-                    <h1>Thur</h1>
+                    <h1>T</h1>
                 </div>
                 <div class="col-xs-9">
                     <h1>Dinner here</h1>
@@ -172,7 +172,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-2">
-                    <h1>Fri</h1>
+                    <h1>F</h1>
                 </div>
                 <div class="col-xs-9">
                     <h1>Dinner here</h1>
@@ -180,7 +180,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-2">
-                    <h1 class="days">Sat</h1>
+                    <h1 class="days">S</h1>
                 </div>
                 <div class="col-xs-9">
                     <h1>Dinner here</h1>
@@ -188,7 +188,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-2">
-                    <h1>Sun</h1>
+                    <h1>S</h1>
                 </div>
                 <div class="col-xs-9">
                     <h1>Dinner here</h1>
