@@ -59,7 +59,7 @@ var store = new vuex.Store({
         },
         addToCookBook({ commit, dispatch }, recipe) {
             debugger
-            api.post("recipes", recipe._id)
+            api.post("recipes", recipe)
                 .then(res => {
                     dispatch("getCookBook")
                 })
