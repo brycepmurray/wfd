@@ -50,14 +50,14 @@
       },
       addToCookBook(result) {
         var recipe = {
-          label: result.label,
-          imageUrl: result.image,
-          url: result.url,
-          servings: result.yield,
-          dietLabels: result.dietLabels,
-          healthLabels: result.healthLabels,
-          indredients: result.ingredientLines,
-          calories: result.calories
+          label: result.recipe.label,
+          imageUrl: result.recipe.image,
+          url: result.recipe.url,
+          servings: result.recipe.yield,
+          dietLabels: result.recipe.dietLabels,
+          healthLabels: result.recipe.healthLabels,
+          indredients: result.recipe.ingredientLines,
+          calories: result.recipe.calories
         }
         this.$store.dispatch('addToCookBook', recipe)
       },
