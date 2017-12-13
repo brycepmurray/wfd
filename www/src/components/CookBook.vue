@@ -1,8 +1,7 @@
 <template>
     <div class="container">
-        <div class="cookbook" v-for="recipe in cookBook">
-            <p>{{recipe.label}}</p>
-
+        <div v-for="recipe in cookBook">
+            <p>Recipe Here: {{recipe.label}}</p>
 
         </div>
     </div>
@@ -10,22 +9,26 @@
 
 
 <script>
+export default {
+    name: 'cookBook',
+    data(){
+        return {}
+    },
+    mounted() {
+        this.$store.dispatch('getMyRecipes', this.$route.params.id)
 
-    export default {
-        name: 'cookBook',
-        data() {
-            return {}
-        },
-        computed: {
-            results() {
-                return this.$store.state.cookBook
-            }
-        },
-        methods: {},
-        components: {}
-    }
+    },
+    computed:{
+        cookBook(){
+            return this.$store.cookBook
+        }
+    },
+    methods:{},
+    components:{}
+}
 </script>
 
 
 <style scoped>
+
 </style>

@@ -1,6 +1,7 @@
 let mongoose = require('mongoose')
 let Schema = mongoose.Schema
 let ObjectId = Schema.Types.ObjectId
+let models = require('../config/constants').models
 
 let schema = new Schema({
     label: { type: String, required: true},
@@ -10,7 +11,8 @@ let schema = new Schema({
     dietLabels: { type: String},
     healthLabels: { type: String},
     indredients: { type: String},
-    calories: { type: String}
+    calories: { type: String},
+    creatorId: {type: ObjectId, ref: models.user.name, required: true}
 
 })
 

@@ -57,6 +57,8 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
+
+
         addToCookBook({ commit, dispatch }, recipe) {
             debugger
             api.post("recipes", recipe)
@@ -79,7 +81,7 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
-
+       
 
 
 
