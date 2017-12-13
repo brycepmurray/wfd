@@ -7,11 +7,7 @@
       </form>
     </div>
     <div class="row text-center">
-      <div class="col-lg-3 static">
-        <calendar>
-        </calendar>
-      </div>
-      <div class="card col-lg-12" style="width: 20rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
+      <div class="card col-lg-8" style="width: 28rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
         <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
         <div class="card-block">
           <h5 class="card-title">
@@ -42,6 +38,7 @@
     computed: {
       results() {
         return this.$store.state.results
+        
       }
     },
     methods: {
@@ -74,10 +71,9 @@
 </script>
 
 <style scoped>
-  .container {
-    background-color: rgb(73, 72, 72);
+  .container-fluid {
     text-align: center;
-    width: 80%;
+    width: 70%;
   }
 
   .row {
@@ -86,21 +82,26 @@
   }
 
   .card {
-    outline: 1px solid black;
     padding: 20px;
     margin: 10px;
     height: 400px;
-    background-color: whitesmoke;
+    background-color: rgba(255, 255, 255, 0.787);
+    box-shadow: 5px 5px rgb(138, 138, 138);
+    border-radius: 6%
   }
 
   .card:hover {
-    outline: 5px solid rgb(211, 218, 214);
     cursor: pointer;
-    background-color: white
+    background-color: white;
+   
+  }
+
+  .card-img-top {
+    width: 200px;
+    height: 200px
   }
 
   .search {
-    float: center;
     width: 30vw;
     color: white;
     background-color: rgb(18, 4, 66);
@@ -111,14 +112,10 @@
   .submit {
     color: white;
     background-color: rgb(18, 4, 66);
-    height: 3rem
+    height: 3rem;
+    margin-right: 35%
   }
 
-
-  .card-img-top {
-    width: 150px;
-    height: 150px
-  }
 
   .glyphicon:hover {
     color: gold
@@ -126,9 +123,7 @@
 
   .static {
     position: fixed;
-    right: -35px;
+    right: 35px;
     z-index: 1;
-
-
   }
 </style>

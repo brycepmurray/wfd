@@ -1,15 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div id="app">
+      <calendar></calendar>
       <navbar></navbar>
-      <calendar>
-        </calendar>
       <router-view></router-view>
     </div>
-
-    <footer>
-      <h6>Coolio, Julio</h6>
-    </footer>
   </div>
 </template>
 
@@ -42,20 +37,15 @@
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    background-image: url('http://www.myfreetextures.com/wp-content/uploads/2014/10/seamless-wood-texture-2.jpg')
+    background-image: url('http://www.myfreetextures.com/wp-content/uploads/2014/10/seamless-wood-texture-2.jpg');
+    width: 100%
   }
 
 button{
   float: right
 }
 
-  footer {
-    height: 10vh;
-    width: 100%;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    background-color: #333;
-    color: white
-  }
+
+
+
 </style>
