@@ -5,21 +5,18 @@
         <a class="home" href="#">Home</a>
       </li>
       <li>
-        <a href="">Shopping List</a>
+        <a href="#shopping">Shopping List</a>
       </li>
+
       <li>
-        <button type="button" id="sidebarCollapse2" class="btn btn-info navbar-btn">
-          <i class="glyphicon glyphicon-align-right"></i>
-          Toggle Calendar
-        </button>
+        <a href="#cookbook">My Recipes</a>
       </li>
+      
       <li class="logout">
         <a @click="logout">Log Out</a>
       </li>
     </ul>
-    <!-- <footer>
-      <h6>Coolio, Julio</h6>
-    </footer> -->
+  
   </div>
 </template>
 
@@ -56,7 +53,6 @@
   li {
     float: left;
   }
-
   li a {
     display: block;
     color: white;
@@ -64,6 +60,7 @@
     padding: 14px 16px;
     text-decoration: none;
   }
+
 
   .logout {
     float: right;

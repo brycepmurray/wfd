@@ -2,6 +2,8 @@
   <div class="container">
     <div id="app">
       <navbar></navbar>
+      <calendar>
+        </calendar>
       <router-view></router-view>
     </div>
 
@@ -14,12 +16,14 @@
 <script>
   import Error from './components/Error'
   import Navbar from './components/Navbar'
+  import Calendar from './components/Calendar'
 
   export default {
     name: 'app',
     components: {
       Error,
-      Navbar
+      Navbar,
+      Calendar
     },
     methods: {},
 

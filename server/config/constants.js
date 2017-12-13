@@ -16,8 +16,8 @@ const models = {
   },
   recipe: {
     name: 'Recipe',
-    endpoint:'recipes'
-    // useCustomRoutes: true
+    endpoint:'recipes',
+    useCustomRoutes: true
   }
 }
 

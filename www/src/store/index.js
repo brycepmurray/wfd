@@ -29,7 +29,8 @@ var store = new vuex.Store({
     state: {
         cookBook: [],
         results: [],
-        err: {}
+        err: {},
+        user: {}
     },
     mutations: {
         setResults(state, results) {
@@ -39,8 +40,10 @@ var store = new vuex.Store({
             state.err = err
         },
         setCookBook(state, recipe) {
-            debugger
             state.cookBook = recipe
+        },
+        setUser(state, user){
+            state.user = user
         }
 
 
@@ -50,7 +53,7 @@ var store = new vuex.Store({
         getRecipes({ commit, dispatch }, payload) {
             recipeApi(payload + '&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5&from=0&to=100')
                 .then(data => {
-                    commit("setResults", data.data.hits)
+                    commit('setResults', data.data.hits)
                     console.log(data)
                 })
                 .catch(err => {
@@ -60,8 +63,7 @@ var store = new vuex.Store({
 
 
         addToCookBook({ commit, dispatch }, recipe) {
-            debugger
-            api.post("recipes", recipe)
+            api.post('recipes', recipe)
                 .then(res => {
                     dispatch("getCookBook")
                 })
@@ -72,8 +74,8 @@ var store = new vuex.Store({
 
 
         getCookBook({ commit, dispatch }) {
-            debugger
-            api("cookbook")
+            
+            api('cookbook')
                 .then(res => {
                     commit('setCookBook', res.data.data)
                 })

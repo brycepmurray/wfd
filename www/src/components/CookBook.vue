@@ -15,12 +15,12 @@ export default {
         return {}
     },
     mounted() {
-        this.$store.dispatch('getMyRecipes', this.$route.params.id)
+        this.$store.dispatch('getCookBook', this.$route.params.id)
 
     },
     computed:{
         cookBook(){
-            return this.$store.cookBook
+            return this.$store.state.cookBook
         }
     },
     methods:{},
