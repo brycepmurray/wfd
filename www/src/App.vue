@@ -38,7 +38,9 @@
     text-align: center;
     color: #2c3e50;
     background-image: url('http://www.myfreetextures.com/wp-content/uploads/2014/10/seamless-wood-texture-2.jpg');
-    width: 100%
+    background-size: cover;
+    width: 100%;
+    height: 100%
   }
 
 button{

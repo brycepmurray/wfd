@@ -2,6 +2,9 @@
     <div class="container-fluid">
         <div class="row text-center">
             <div class="card col-lg-8" style="width: 28rem;" v-for="recipe in cookBook" draggable="true" v-on:dragstart.capture="moving">
+            <div class="ft">
+                <span class="glyphicon glyphicon-trash"></span>
+            </div>
                 <img class="card-img-top" :src="recipe.imageUrl" alt="Card image cap">
                 <div class="card-block">
                     <h5 class="card-title">
@@ -45,6 +48,20 @@
     text-align: center;
     width: 70%;
   }
+
+.ft{
+    text-align: right;
+    }
+
+    .glyphicon:hover{
+        transform:scale(2,2)
+    }
+
+    .glyphicon:hover{
+        color: rgb(150, 1, 1)
+    }
+
+
 
     .card {
         padding: 20px;
