@@ -1,24 +1,31 @@
 <template>
-    <div class="cookbook">
-        Test Message
+    <div class="container">
+        <div class="cookbook" v-for="recipe in cookBook">
+            <p>{{recipe.label}}</p>
 
+
+        </div>
     </div>
 </template>
 
 
 <script>
-export default {
-    name: 'cookbook',
-    data(){
-        return {}
-    },
-    computed:{},
-    methods:{},
-    components:{}
-}
+
+    export default {
+        name: 'cookBook',
+        data() {
+            return {}
+        },
+        computed: {
+            results() {
+                return this.$store.state.cookBook
+            }
+        },
+        methods: {},
+        components: {}
+    }
 </script>
 
 
 <style scoped>
-
 </style>
