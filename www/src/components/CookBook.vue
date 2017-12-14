@@ -12,7 +12,7 @@
                     </h5>
                     <p class="card-text" v-if="recipe.source == 'No Recipes'">Yummy!!</p>
                     <p class="card-text" v-else>{{recipe.source}}</p>
-                    <a :href="recipe.url" class="btn btn-primary to">View Recipe</a>
+                    <a :href="recipe.url" target="_blank"class="btn btn-primary to">View Recipe</a>
                     </button>
                 </div>
             </div>

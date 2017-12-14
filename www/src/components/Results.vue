@@ -4,8 +4,6 @@
       <form @submit.prevent="getRecipes()">
         <input class="search" type="text" v-model="recipe" placeholder="Search millions of recipes...">
         <button type="submit" class="submit btn btn-default">Default</button>
-       
-        
       </form>
     </div>
     <div class="row text-center">
@@ -17,7 +15,7 @@
           </h5>
           <p class="card-text" v-if="result.recipe.source == 'No Recipes'">Yummy!!</p>
           <p class="card-text" v-else>{{result.recipe.source}}</p>
-          <a :href="result.recipe.url" class="btn btn-primary to">View Recipe</a>
+          <a :href="result.recipe.url" target="_blank"class="btn btn-primary to">View Recipe</a>
           <button class="btn btn-warning" @click="addToCookBook(result)">Add to Cookbook
           </button>
         </div>
@@ -40,6 +38,9 @@
             results() {
                 return this.$store.state.results
 
+            },
+            cookBook() {
+                return this.$store.state.cookBook
             }
         },
         methods: {
