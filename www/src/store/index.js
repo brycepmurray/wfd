@@ -42,7 +42,7 @@ var store = new vuex.Store({
         setCookBook(state, recipe) {
             state.cookBook = recipe
         },
-        setUser(state, user){
+        setUser(state, user) {
             state.user = user
         }
 
@@ -74,7 +74,7 @@ var store = new vuex.Store({
 
 
         getCookBook({ commit, dispatch }) {
-            
+
             api('cookbook')
                 .then(res => {
                     commit('setCookBook', res.data.data)
@@ -83,7 +83,7 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
-       
+
 
 
 
@@ -101,7 +101,6 @@ var store = new vuex.Store({
 
         },
         login({ commit, dispatch }, payload) {
-            debugger
             auth.post('login', payload)
                 .then(res => {
                     commit('setUser', res.data.data)

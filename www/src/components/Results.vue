@@ -3,7 +3,9 @@
     <div>
       <form @submit.prevent="getRecipes()">
         <input class="search" type="text" v-model="recipe" placeholder="Search millions of recipes...">
-        <button class="submit" type="submit">Search</button>
+        <button type="submit" class="submit btn btn-default">Default</button>
+       
+        
       </form>
     </div>
     <div class="row text-center">
@@ -25,105 +27,101 @@
 </template>
 
 <script>
-  import Calendar from '../components/Calendar'
-  export default {
-    name: 'results',
-    data() {
-      return {
-        recipe: ""
-      }
-    },
-    mounted() {
-    },
-    computed: {
-      results() {
-        return this.$store.state.results
-        
-      }
-    },
-    methods: {
-      getRecipes() {
-        this.$store.dispatch('getRecipes', this.recipe)
-      },
-      addToCookBook(result) {
-        var recipe = {
-          label: result.recipe.label,
-          imageUrl: result.recipe.image,
-          url: result.recipe.url,
-          servings: result.recipe.yield,
-          dietLabels: result.recipe.dietLabels,
-          healthLabels: result.recipe.healthLabels,
-          indredients: result.recipe.ingredientLines,
-          calories: result.recipe.calories
+    import Calendar from '../components/Calendar'
+    export default {
+        name: 'results',
+        data() {
+            return {
+                recipe: ""
+            }
+        },
+        mounted() {},
+        computed: {
+            results() {
+                return this.$store.state.results
+
+            }
+        },
+        methods: {
+            getRecipes() {
+                this.$store.dispatch('getRecipes', this.recipe)
+            },
+            addToCookBook(result) {
+                var recipe = {
+                    label: result.recipe.label,
+                    imageUrl: result.recipe.image,
+                    url: result.recipe.url,
+                    servings: result.recipe.yield,
+                    dietLabels: result.recipe.dietLabels,
+                    healthLabels: result.recipe.healthLabels,
+                    indredients: result.recipe.ingredientLines,
+                    calories: result.recipe.calories
+                }
+                this.$store.dispatch('addToCookBook', recipe)
+            },
+            moving(event) {
+                console.log(event)
+                event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
+                console.log('We are moving')
+            }
+        },
+        components: {
+            Calendar
         }
-        this.$store.dispatch('addToCookBook', recipe)
-      },
-      moving(event) {
-        console.log(event)
-        event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
-        console.log('We are moving')
-      }
-    },
-    components: {
-      Calendar
     }
-  }
 </script>
 
 <style scoped>
-  .container-fluid {
-    text-align: center;
-    width: 70%;
-  }
-
-  .row {
-    display: inline;
-
-  }
-
-  .card {
-    padding: 20px;
-    margin: 10px;
-    height: 400px;
-    background-color: rgba(255, 255, 255, 0.787);
-    box-shadow: 5px 5px rgb(138, 138, 138);
-    border-radius: 6%
-  }
-
-  .card:hover {
-    cursor: pointer;
-    background-color: white;
-   
-  }
-
-  .card-img-top {
-    width: 200px;
-    height: 200px
-  }
-
-  .search {
-    width: 30vw;
-    color: white;
-    background-color: rgb(18, 4, 66);
-    font-size: 2rem;
-    height: 3rem
-  }
-
-  .submit {
-    color: white;
-    background-color: rgb(18, 4, 66);
-    height: 3rem;
-    margin-right: 35%
-  }
-
-
-  .glyphicon:hover {
-    color: gold
-  }
-
-  .static {
-    position: fixed;
-    right: 35px;
-    z-index: 1;
-  }
+    .container-fluid {
+        text-align: center;
+        width: 70%;
+    }
+    
+    .row {
+        display: inline;
+    }
+    
+    .card {
+        padding: 20px;
+        margin: 10px;
+        height: 400px;
+        background-color: rgba(255, 255, 255, 0.787);
+        box-shadow: 5px 5px rgb(138, 138, 138);
+        border-radius: 6%
+    }
+    
+    .card:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    
+    .card-img-top {
+        width: 200px;
+        height: 200px
+    }
+    
+    .search {
+        width: 30vw;
+        color: white;
+        background-color: rgb(18, 4, 66);
+        font-size: 2rem;
+        height: 3rem
+    }
+    
+    .submit {
+        color: white;
+        background-color: rgb(18, 4, 66);
+        height: 3rem;
+        margin-right: 35%
+    }
+    
+    .glyphicon:hover {
+        color: gold
+    }
+    
+    .static {
+        position: fixed;
+        right: 35px;
+        z-index: 1;
+    }
 </style>
