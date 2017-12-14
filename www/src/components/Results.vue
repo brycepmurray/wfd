@@ -13,7 +13,7 @@
               </div>
               <div class="modal-body">
                     <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
-                    <h5 class="modal-title">{{activeRecipe.recipe.ingredientLines}}</h5>
+                    <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines">{{i}}</h5>
                 </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -75,7 +75,8 @@
             setActiveRecipe(result){
                 this.activeRecipe = result
             },
-
+        
+        
             getRecipes() {
                 this.$store.dispatch('getRecipes', this.recipe)
             },
