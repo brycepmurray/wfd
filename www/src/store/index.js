@@ -30,7 +30,8 @@ var store = new vuex.Store({
         cookBook: [],
         results: [],
         err: {},
-        user: {}
+        user: {},
+        week: {}
     },
     mutations: {
         setResults(state, results) {
@@ -50,8 +51,15 @@ var store = new vuex.Store({
     },
 
     actions: {
+//key database::::
+
+//jeff's   ====     '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b'
+//leslie's  ===     '&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5&from=0&to=100'
+
+
+        //result actions=======================================================================================
         getRecipes({ commit, dispatch }, payload) {
-            recipeApi(payload + '&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5&from=0&to=100')
+            recipeApi(payload + '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b')
                 .then(data => {
                     commit('setResults', data.data.hits)
                     console.log(data)
@@ -61,7 +69,7 @@ var store = new vuex.Store({
                 })
         },
 
-
+//cookbook actions ============================================================================================
         addToCookBook({ commit, dispatch }, recipe) {
             api.post('recipes', recipe)
                 .then(res => {
@@ -97,7 +105,7 @@ var store = new vuex.Store({
 
 
 
-        //Login and Register actions
+        //Login and Register actions ===================================================================
         register({ commit, dispatch }, payload) {
             auth.post('register', payload)
                 .then(res => {
