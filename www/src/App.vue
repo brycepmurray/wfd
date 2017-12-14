@@ -11,17 +11,13 @@
     import Error from './components/Error'
     import Navbar from './components/Navbar'
 
-
-
     export default {
         name: 'app',
         components: {
             Error,
             Navbar,
-
         },
         methods: {},
-
 
         mounted() {
             this.$store.dispatch('authenticate')
