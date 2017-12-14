@@ -33,7 +33,6 @@
 
 
 
-
     <div>
       <form @submit.prevent="getRecipes()">
         <input class="search" type="text" v-model="recipe" placeholder="Search millions of recipes...">
@@ -41,17 +40,18 @@
       </form>
     </div>
     <div class="row text-center">
-      <div @click="setActiveRecipe(result)" data-toggle="modal" data-target="#myModal" class="card col-lg-8" style="width: 28rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
-        <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
-        <div class="card-block">
-          <h5 class="card-title">
+      <div @click="setActiveRecipe(result)"  class="card col-lg-8" style="width: 28rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
+        <img data-toggle="modal" data-target="#myModal" class="card-img-top" :src="result.recipe.image" alt="Card image cap">
+        <div  class="card-block">
+          <a><h5 data-toggle="modal" data-target="#myModal" class="card-title">
             <strong>{{result.recipe.label}}</strong>
-          </h5>
+          </h5></a>
           <p class="card-text" v-if="result.recipe.source == 'No Recipes'">Yummy!!</p>
           <p class="card-text" v-else>{{result.recipe.source}}</p>
           <a :href="result.recipe.url" target="_blank"class="btn btn-primary to">View Recipe</a>
-          <button class="btn btn-warning" @click="addToCookBook(result)">Add to Cookbook
-          </button>
+
+          <button class="btn btn-warning" @click="addToCookBook(result)">Add to Cookbook</button>
+          
         </div>
       </div>
     </div>
@@ -147,7 +147,8 @@
     
     .card-img-top {
         width: 200px;
-        height: 200px
+        height: 200px;
+        border-radius: 6%
     }
     
     .search {
