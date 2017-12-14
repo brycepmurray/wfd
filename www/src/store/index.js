@@ -83,7 +83,7 @@ var store = new vuex.Store({
         },
         removeFromCookBook({ commit, dispatch }, recipe) {
             debugger
-            api.delete('cookbook/' + recipe._id)
+            api.delete('recipes/' + recipe._id)
                 .then(res => {
                     dispatch("getCookBook")
                 })
