@@ -1,4 +1,5 @@
 <template>
+    <!-- Adding a Date Setter so that user can select week that they would like to have displayed and selected -->
         <div class="form-group">
                 <label for="startDate">Start Date:</label>
                 <input type="date" name="startDate" class="form-control" placeholder="Start Date" :min="date" v-model="event.startDate" required
