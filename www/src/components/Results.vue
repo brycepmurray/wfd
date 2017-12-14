@@ -2,18 +2,18 @@
   <div class="container-fluid">
         
         <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
+        <div id="myModal" class="modal fade" role="dialog" v-if="activeRecipe.recipe">
           <div class="modal-dialog">
         
             <!-- Modal content-->
             <div class="modal-content">
-              <div class="modal-header">
+              <div class="modadl-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <!-- <h4 class="modal-title">{{activeRecipe.recipe.label}}</h4> -->
+                <h4 class="modal-title">{{activeRecipe.recipe.label}}</h4>
               </div>
               <div class="modal-body">
-                    <!-- <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap"> -->
-                    <!-- <h5 class="modal-title">{{activeRecipe.recipe.ingredientLines}}</h5> -->
+                    <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
+                    <h5 class="modal-title">{{activeRecipe.recipe.ingredientLines}}</h5>
                 </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
