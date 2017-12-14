@@ -1,17 +1,39 @@
 <template>
   <div class="container-fluid">
+        
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+        
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{result.recipe.label}}</h4>
+              </div>
+              <div class="modal-body">
+                <p>Some text in the modal.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+        
+          </div>
+        </div>
+
+
+
+
+
     <div>
       <form @submit.prevent="getRecipes()">
         <input class="search" type="text" v-model="recipe" placeholder="Search millions of recipes...">
-        <button class="submit" type="submit">Search</button>
+        <button type="submit" class="submit btn btn-default">Default</button>
       </form>
     </div>
     <div class="row text-center">
-      <div class="col-lg-3 static">
-        <calendar>
-        </calendar>
-      </div>
-      <div class="card col-lg-12" style="width: 20rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
+      <div data-toggle="modal" data-target="#myModal" class="card col-lg-8" style="width: 28rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
         <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
         <div class="card-block">
           <h5 class="card-title">
@@ -19,7 +41,7 @@
           </h5>
           <p class="card-text" v-if="result.recipe.source == 'No Recipes'">Yummy!!</p>
           <p class="card-text" v-else>{{result.recipe.source}}</p>
-          <a :href="result.recipe.url" class="btn btn-primary to">View Recipe</a>
+          <a :href="result.recipe.url" target="_blank"class="btn btn-primary to">View Recipe</a>
           <button class="btn btn-warning" @click="addToCookBook(result)">Add to Cookbook
           </button>
         </div>
@@ -29,106 +51,109 @@
 </template>
 
 <script>
-  import Calendar from '../components/Calendar'
-  export default {
-    name: 'results',
-    data() {
-      return {
-        recipe: ""
-      }
-    },
-    mounted() {
-    },
-    computed: {
-      results() {
-        return this.$store.state.results
-      }
-    },
-    methods: {
-      getRecipes() {
-        this.$store.dispatch('getRecipes', this.recipe)
-      },
-      addToCookBook(result) {
-        var recipe = {
-          label: result.recipe.label,
-          imageUrl: result.recipe.image,
-          url: result.recipe.url,
-          servings: result.recipe.yield,
-          dietLabels: result.recipe.dietLabels,
-          healthLabels: result.recipe.healthLabels,
-          indredients: result.recipe.ingredientLines,
-          calories: result.recipe.calories
+    import Calendar from '../components/Calendar'
+    export default {
+        name: 'results',
+        data() {
+            return {
+                recipe: ""
+            }
+        },
+        mounted() {},
+        computed: {
+            results() {
+                return this.$store.state.results
+
+            },
+            cookBook() {
+                return this.$store.state.cookBook
+            }
+        },
+        methods: {
+            getRecipes() {
+                this.$store.dispatch('getRecipes', this.recipe)
+            },
+            addToCookBook(result) {
+                for(var i=0; i<this.cookBook.length; i++){
+                    var recipe = this.cookBook[i]
+                    if(result.recipe.url == recipe.url)
+                   return
+                }
+                var recipe = {
+                    label: result.recipe.label,
+                    imageUrl: result.recipe.image,
+                    url: result.recipe.url,
+                    servings: result.recipe.yield,
+                    dietLabels: result.recipe.dietLabels,
+                    healthLabels: result.recipe.healthLabels,
+                    indredients: result.recipe.ingredientLines,
+                    calories: result.recipe.calories
+                }
+                this.$store.dispatch('addToCookBook', recipe)
+            },
+            moving(event) {
+                console.log(event)
+                event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
+                console.log('We are moving')
+            }
+        },
+        components: {
+            Calendar
         }
-        this.$store.dispatch('addToCookBook', recipe)
-      },
-      moving(event) {
-        console.log(event)
-        event.dataTransfer.setData('text/javascript', JSON.stringify(this.item))
-        console.log('We are moving')
-      }
-    },
-    components: {
-      Calendar
     }
-  }
 </script>
 
 <style scoped>
-  .container {
-    background-color: rgb(73, 72, 72);
-    text-align: center;
-    width: 80%;
-  }
-
-  .row {
-    display: inline;
-
-  }
-
-  .card {
-    outline: 1px solid black;
-    padding: 20px;
-    margin: 10px;
-    height: 400px;
-    background-color: whitesmoke;
-  }
-
-  .card:hover {
-    outline: 5px solid rgb(211, 218, 214);
-    cursor: pointer;
-    background-color: white
-  }
-
-  .search {
-    float: center;
-    width: 30vw;
-    color: white;
-    background-color: rgb(18, 4, 66);
-    font-size: 2rem;
-    height: 3rem
-  }
-
-  .submit {
-    color: white;
-    background-color: rgb(18, 4, 66);
-    height: 3rem
-  }
-
-
-  .card-img-top {
-    width: 150px;
-    height: 150px
-  }
-
-  .glyphicon:hover {
-    color: gold
-  }
-
-  .static {
-    position: fixed;
-    right: -35px;
-    z-index: 1;
-
-
-  }
+    .container-fluid {
+        text-align: center;
+        width: 70%;
+    }
+    
+    .row {
+        display: inline;
+    }
+    
+    .card {
+        padding: 20px;
+        margin: 10px;
+        height: 400px;
+        background-color: rgba(255, 255, 255, 0.787);
+        box-shadow: 5px 5px rgb(138, 138, 138);
+        border-radius: 6%
+    }
+    
+    .card:hover {
+        cursor: pointer;
+        background-color: white;
+    }
+    
+    .card-img-top {
+        width: 200px;
+        height: 200px
+    }
+    
+    .search {
+        width: 30vw;
+        color: white;
+        background-color: rgb(18, 4, 66);
+        font-size: 2rem;
+        height: 3rem
+    }
+    
+    .submit {
+        color: white;
+        background-color: rgb(18, 4, 66);
+        height: 3rem;
+        margin-right: 35%
+    }
+    
+    .glyphicon:hover {
+        color: gold
+    }
+    
+    .static {
+        position: fixed;
+        right: 35px;
+        z-index: 1;
+    }
 </style>
