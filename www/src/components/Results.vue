@@ -9,14 +9,19 @@
             <div class="modal-content">
               <div class="modadl-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">{{activeRecipe.recipe.label}}</h4>
+                <h4 class="modal-title"><strong>{{activeRecipe.recipe.label}}</strong></h4><br>
+                <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
               </div>
               <div class="modal-body">
-                    <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
-                    <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines">{{i}}</h5>
-                </div>
+                  <ul>
+                    <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines"><li>{{i}}  <span class="glyphicon glyphicon-plus"></span></li></h5>
+                </ul>
+            </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <h5>Servings: {{activeRecipe.recipe.yield}}</h5>
+                  <h5>Calories: {{activeRecipe.recipe.calories}}</h5>
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <a :href="activeRecipe.recipe.url" target="_blank" class="btn btn-primary">View Directions  <span class="glyphicon glyphicon-hand-right"></span></a>
               </div>
             </div>
         
@@ -114,6 +119,10 @@
     .container-fluid {
         text-align: center;
         width: 70%;
+    }
+
+    .modal-body{
+        text-align: left
     }
     
     .row {
