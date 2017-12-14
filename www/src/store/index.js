@@ -61,7 +61,7 @@ var store = new vuex.Store({
                 })
         },
 
-
+        //COOKBOOK ACTIONS
         addToCookBook({ commit, dispatch }, recipe) {
             api.post('recipes', recipe)
                 .then(res => {
@@ -71,8 +71,6 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
-
-
         getCookBook({ commit, dispatch }) {
 
             api('cookbook')
@@ -83,6 +81,18 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
+        removeFromCookBook({ commit, dispatch }, recipe) {
+            debugger
+            api.delete('cookbook/' + recipe._id)
+                .then(res => {
+                    dispatch("getCookBook")
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
+        },
+
+
 
 
 

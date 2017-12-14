@@ -3,7 +3,7 @@
         <div class="row text-center">
             <div class="card col-lg-8" style="width: 28rem;" v-for="recipe in cookBook" draggable="true" v-on:dragstart.capture="moving">
             <div class="ft">
-                <span class="glyphicon glyphicon-trash"></span>
+                <span class="glyphicon glyphicon-trash" @click="removeFromCookBook(recipe)"></span>
             </div>
                 <img class="card-img-top" :src="recipe.imageUrl" alt="Card image cap">
                 <div class="card-block">
@@ -36,33 +36,32 @@
                 return this.$store.state.cookBook
             }
         },
-        methods: {},
+        methods: {
+            removeFromCookBook(recipe) {
+                this.$store.dispatch("removeFromCookBook", recipe)
+            }
+        },
         components: {}
     }
 </script>
-
-
 <style scoped>
-
-.container-fluid {
-    text-align: center;
-    width: 70%;
-  }
-
-.ft{
-    text-align: right;
+    .container-fluid {
+        text-align: center;
+        width: 70%;
     }
-
-    .glyphicon:hover{
-        transform:scale(2,2)
+    
+    .ft {
+        text-align: right;
     }
-
-    .glyphicon:hover{
+    
+    .glyphicon:hover {
+        transform: scale(2, 2)
+    }
+    
+    .glyphicon:hover {
         color: rgb(150, 1, 1)
     }
-
-
-
+    
     .card {
         padding: 20px;
         margin: 10px;
@@ -70,17 +69,17 @@
         background-color: rgba(255, 255, 255, 0.787);
         box-shadow: 5px 5px rgb(138, 138, 138);
         border-radius: 6%
-      }
+    }
     
-      .card:hover {
+    .card:hover {
         cursor: pointer;
         background-color: rgb(255, 255, 255);
-        box-shadow: 5px 5px #333;;
-        
-      }
-      
-  .card-img-top {
-    width: 200px;
-    height: 200px
-  }
+        box-shadow: 5px 5px #333;
+        ;
+    }
+    
+    .card-img-top {
+        width: 200px;
+        height: 200px
+    }
 </style>
