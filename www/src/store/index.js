@@ -83,6 +83,16 @@ var store = new vuex.Store({
                     commit('handleError', err)
                 })
         },
+
+        removeFromCookBook({commit, dispatch}, recipe){
+            api.delete('recipes/' + recipe._id)
+            .then(res => {
+                dispatch('getCookBook')
+            })
+            .catch(err => {
+                commit('handleError', err)
+            })
+        },
        
 
 

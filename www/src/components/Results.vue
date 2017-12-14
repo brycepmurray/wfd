@@ -19,7 +19,9 @@
             </div>
               <div class="modal-footer">
                   <h5>Servings: {{activeRecipe.recipe.yield}}</h5>
-                  <h5>Calories: {{activeRecipe.recipe.calories}}</h5>
+                  <h5>Calories: {{Math.floor(activeRecipe.recipe.calories)}}</h5>
+                  <h5  v-for="i in activeRecipe.recipe.dietLabels">{{i}}</h5>
+                    <h5 v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                     <a :href="activeRecipe.recipe.url" target="_blank" class="btn btn-primary">View Directions  <span class="glyphicon glyphicon-hand-right"></span></a>
               </div>
