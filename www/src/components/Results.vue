@@ -9,11 +9,12 @@
             <div class="modal-content">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">{{result.recipe.label}}</h4>
+                <!-- <h4 class="modal-title">{{activeRecipe.recipe.label}}</h4> -->
               </div>
               <div class="modal-body">
-                <p>Some text in the modal.</p>
-              </div>
+                    <!-- <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap"> -->
+                    <!-- <h5 class="modal-title">{{activeRecipe.recipe.ingredientLines}}</h5> -->
+                </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               </div>
@@ -33,7 +34,7 @@
       </form>
     </div>
     <div class="row text-center">
-      <div data-toggle="modal" data-target="#myModal" class="card col-lg-8" style="width: 28rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
+      <div @click="setActiveRecipe(result)" data-toggle="modal" data-target="#myModal" class="card col-lg-8" style="width: 28rem;" v-for="result in results" draggable="true" v-on:dragstart.capture="moving">
         <img class="card-img-top" :src="result.recipe.image" alt="Card image cap">
         <div class="card-block">
           <h5 class="card-title">
@@ -56,7 +57,8 @@
         name: 'results',
         data() {
             return {
-                recipe: ""
+                recipe: "",
+                activeRecipe: {}
             }
         },
         mounted() {},
@@ -70,6 +72,10 @@
             }
         },
         methods: {
+            setActiveRecipe(result){
+                this.activeRecipe = result
+            },
+
             getRecipes() {
                 this.$store.dispatch('getRecipes', this.recipe)
             },
