@@ -16,11 +16,12 @@
                     </div>
                     <div class="modal-body">
                         <h3>Ingredients:</h3>
+                        <h6> (click <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
                         <ul>
                             <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines">
                                 <li>{{i}}
-                                    <span @click='addToShopList(banana)' class="glyphicon glyphicon-plus"></span>
-                                </li>
+                                    <span @click='addToShopList(banana)' class="glyphicon glyphicon-plus"></span> 
+                                </li>     
                             </h5>
                         </ul>
                     </div>
