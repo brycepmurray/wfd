@@ -84,7 +84,7 @@
                 activeRecipe: {}
             }
         },
-        mounted() { },
+        mounted() {},
         computed: {
             results() {
                 return this.$store.state.results
@@ -95,7 +95,8 @@
             }
         },
         methods: {
-            setActiveRecipe(result) {debugger
+            setActiveRecipe(result) {
+                debugger
                 this.activeRecipe = result
             },
 
@@ -148,23 +149,23 @@
         text-align: center;
         width: 80%;
     }
-
-    .hashtag{
+    
+    .hashtag {
         padding-left: 10px
     }
-
+    
     .modal-body {
         text-align: left
     }
-
+    
     .row {
         width: 100%
     }
-
+    
     .wide {
         width: 100%
     }
-
+    
     .card {
         padding: 20px;
         margin: 10px;
@@ -173,18 +174,18 @@
         box-shadow: 5px 5px rgb(138, 138, 138);
         border-radius: 6%
     }
-
+    
     .card:hover {
         cursor: pointer;
         background-color: white;
     }
-
+    
     .card-img-top {
         width: 200px;
         height: 200px;
         border-radius: 6%
     }
-
+    
     .search {
         width: 30vw;
         color: black;
@@ -193,24 +194,28 @@
         height: 3rem;
         margin-top: 10px
     }
-
+    
     .submit {
         height: 3rem;
         margin-right: 35%;
         margin-top: 10px
     }
-
+    
     .glyphicon:hover {
         color: gold
     }
-
+    
     .glyphicon-plus {
         cursor: pointer
     }
-
+    
     .static {
         position: fixed;
         right: 35px;
         z-index: 1;
+    }
+    
+    .modal-content {
+        background-image: url("https://cdn.pixabay.com/photo/2017/06/04/18/14/marble-2371776_960_720.jpg");
     }
 </style>
