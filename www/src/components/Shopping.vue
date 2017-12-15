@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <h1>{{user.name}}'s Shopping List:</h1><br>
+        <h1><u>{{user.name}}'s Shopping List:</u></h1><br>
         <div v-for="item in shopping" class="shopping">
-            <h4><li>{{item.description}}
+            <h4><li><b>{{item.description}}</b>
                 <span class="glyphicon glyphicon-trash" @click="removeFromShopList(item)"></span></li> </h4>
         </div>
     </div>
@@ -22,12 +22,12 @@
             shopping() {
                 return this.$store.state.shopping
             },
-            user(){
+            user() {
                 return this.$store.state.user
             }
         },
         methods: {
-            removeFromShopList(item){
+            removeFromShopList(item) {
                 this.$store.dispatch("removeFromShopList", item)
 
             }
@@ -38,4 +38,5 @@
 
 
 <style scoped>
+
 </style>

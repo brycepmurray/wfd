@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div id="no" class="container-fluid">
     <div id="app">
       <navbar></navbar>
       <router-view></router-view>
@@ -34,6 +34,11 @@
         color: #2c3e50;
         background-image: url('http://www.myfreetextures.com/wp-content/uploads/2014/10/seamless-wood-texture-2.jpg');
         min-height: 100vh;
+    }
+    
+    #no {
+        padding-left: 0px;
+        padding-right: 0px;
     }
     
     button {
