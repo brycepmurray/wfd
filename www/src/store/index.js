@@ -118,7 +118,17 @@ var store = new vuex.Store({
             })
         },
 
-        getShopList({commit, dispatch}) {debugger
+        removeFromShopList({commit, dispatch}, item){
+            api.delete('items/' + item._id)
+            .then(res => {
+                dispatch('getShopList')
+            })
+            .catch(err => {
+                commit('handleError', err)
+            })
+        },
+
+        getShopList({commit, dispatch}) {
             api('items')
             .then(res => {
                 commit('setShopping', res.data.data)

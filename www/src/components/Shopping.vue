@@ -2,7 +2,8 @@
     <div class="container">
         <h1>Shopping List:</h1><br>
         <div v-for="item in shopping" class="shopping">
-            <h4><li>{{item.description}}</li></h4>
+            <h4><li>{{item.description}}
+                <span class="glyphicon glyphicon-trash" @click="removeFromShopList(item)"></span></li> </h4>
         </div>
     </div>
 </template>
@@ -22,7 +23,12 @@
                 return this.$store.state.shopping
             }
         },
-        methods: {},
+        methods: {
+            removeFromShopList(item){
+                this.$store.dispatch("removeFromShopList", item)
+
+            }
+        },
         components: {}
     }
 </script>
