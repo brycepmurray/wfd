@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-          <col-xs-3>
+          <div class="col-xs-6">
           <li>
             <a class="home" href="#">Home</a>
           </li>
@@ -12,7 +12,10 @@
           <li>
             <a href="#cookbook">Cookbook</a>
           </li>
-        </col-xs-3>
+          <li>
+            <a href="#calendar">Calendar</a>
+              </li>
+            </div>
 
             <li>
                 <h3>Welcome, {{user.name}}</h3>

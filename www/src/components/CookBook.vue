@@ -73,6 +73,7 @@
 
 
 <script>
+    const swal = require('sweetalert2')
     export default {
         name: 'cookBook',
         data() {
@@ -94,6 +95,13 @@
         methods: {
             removeFromCookBook(recipe) {
                 this.$store.dispatch("removeFromCookBook", recipe)
+                return swal({
+                    position: 'top-right',
+                    type: 'error',
+                    title: 'Recipe removed',
+                    showConfirmButton: false,
+                    timer: 1000
+                  })
             },
             setActiveRecipe(recipe) {
                 this.activeRecipe = recipe
