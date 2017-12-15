@@ -28,9 +28,9 @@
                                 <h3>Ingredients:</h3>
                                 <h6> (click <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
                                 <ul>
-                                    <h5 class="modal-title" v-for="i in activeRecipe.ingredients">
-                                        <li>{{i}}
-                                            <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span> 
+                                    <h5 class="modal-title" v-for="t in activeRecipe.ingredients">
+                                        <li>{{t}}
+                                            <span @click='addToShopList(t)' class="glyphicon glyphicon-plus"></span> 
                                         </li>     
                                     </h5>
                                 </ul>
@@ -111,11 +111,11 @@
         text-align: right;
     }
 
-    .glyphicon:hover {
+    .glyphicon-trash:hover {
         transform: scale(2, 2)
     }
 
-    .glyphicon:hover {
+    .glyphicon-trash:hover {
         color: rgb(150, 1, 1)
     }
 

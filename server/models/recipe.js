@@ -8,9 +8,9 @@ let schema = new Schema({
     imageUrl: { type: String},
     url: { type: String},
     servings: { type: String},
-    dietLabels: { type: String},
-    healthLabels: { type: String},
-    indredients: { type: String},
+    dietLabels: [{ type: String}],
+    healthLabels: [{ type: String}],
+    indredients: [{ type: String}],
     calories: { type: String},
     creatorId: {type: ObjectId, ref: models.user.name, required: true}
 
