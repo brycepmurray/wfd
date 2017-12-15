@@ -25,32 +25,33 @@
                             </div>
                         </div>
                         <div class="modal-body text-left">
-                                <h3>Ingredients:</h3>
-                                <h6> (click <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
-                                <ul>
-                                    <h5 class="modal-title" v-for="t in activeRecipe.ingredients">
-                                        <li>{{t}}
-                                            <span @click='addToShopList(t)' class="glyphicon glyphicon-plus"></span> 
-                                        </li>     
-                                    </h5>
-                                </ul>
-                            </div>
-                            <div class="modal-footer">
-                                    <h5>Servings: {{activeRecipe.servings}}</h5>
-                                    <h5>Calories: {{Math.floor(activeRecipe.calories)}}</h5>
-                                    <h5 v-for="i in activeRecipe.dietLabels">{{i}}</h5>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <a :href="activeRecipe.url" target="_blank" class="btn btn-primary">View Directions
-                                        <span class="glyphicon glyphicon-hand-right"></span>
-                                    </a>
-                                </div>
-                  </div>
+                            <h3>Ingredients:</h3>
+                            <h6> (click
+                                <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
+                            <ul>
+                                <h5 class="modal-title" v-for="t in activeRecipe.ingredients">
+                                    <li>{{t}}
+                                        <span @click='addToShopList(t)' class="glyphicon glyphicon-plus"></span>
+                                    </li>
+                                </h5>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <h5>Servings: {{activeRecipe.servings}}</h5>
+                            <h5>Calories: {{Math.floor(activeRecipe.calories)}}</h5>
+                            <h5 v-for="i in activeRecipe.dietLabels">{{i}}</h5>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <a :href="activeRecipe.url" target="_blank" class="btn btn-primary">View Directions
+                                <span class="glyphicon glyphicon-hand-right"></span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
         <!-- end of Modal -->
-        <div class="row text-center">
+        <div class="row text-center ">
             <div @click="setActiveRecipe(recipe)" class="card col-lg-8" style="width: 28rem;" v-for="recipe in cookBook" draggable="true"
                 v-on:dragstart.capture="moving">
                 <div class="ft">
@@ -83,13 +84,13 @@
         },
         mounted() {
             this.$store.dispatch('getCookBook', this.$route.params.id)
-            
+
         },
         computed: {
             cookBook() {
                 return this.$store.state.cookBook
             }
-            
+
 
         },
         methods: {
@@ -101,7 +102,7 @@
                     title: 'Recipe removed',
                     showConfirmButton: false,
                     timer: 1000
-                  })
+                })
             },
             setActiveRecipe(recipe) {
                 this.activeRecipe = recipe
@@ -111,13 +112,13 @@
                     description: t
                 }
                 this.$store.dispatch('addToShopList', item)
-                    return swal({
-                        position: 'top-right',
-                        type: 'success',
-                        title: 'Added to shopping list',
-                        showConfirmButton: false,
-                        timer: 500
-                      })
+                return swal({
+                    position: 'top-right',
+                    type: 'success',
+                    title: 'Added to shopping list',
+                    showConfirmButton: false,
+                    timer: 500
+                })
             },
         },
         components: {}
@@ -164,10 +165,16 @@
         box-shadow: 5px 5px #333;
         ;
     }
-    
+
 
     .card-img-top {
         width: 200px;
         height: 200px
+    }
+
+    .text-center {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 </style>

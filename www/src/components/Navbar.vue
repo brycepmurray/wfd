@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-          <div class="col-xs-3">
+          <div class="col-xs-4">
           <li>
             <a class="home" href="#">Home</a>
           </li>

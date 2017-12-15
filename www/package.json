@@ -14,11 +14,14 @@
   "dependencies": {
     "axios": "^0.15.3",
     "bootstrap": "^3.3.7",
+    "i": "^0.3.6",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "npm": "^5.6.0",
     "socket.io-client": "^1.7.3",
     "sweetalert2": "^7.1.0",
     "vue": "^2.1.10",
+    "vue-full-calendar": "^2.5.1",
     "vue-fullcalendar": "^1.0.9",
     "vue-router": "^2.2.0",
     "vuex": "^2.3.1"

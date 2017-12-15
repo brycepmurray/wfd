@@ -47,8 +47,8 @@
 
             </div>
         </div>
-        <div>
-            <form @submit.prevent="getRecipes()">
+        <div class="row search-bar">
+            <form @submit.prevent="getRecipes()" class="text-center">
                 <input class="search" type="text" v-model="recipe" placeholder="Search millions of recipes...">
                 <button type="submit" class="submit btn btn-default">Search</button>
             </form>
@@ -108,8 +108,8 @@
                 for (var i = 0; i < this.cookBook.length; i++) {
                     var recipe = this.cookBook[i]
                     if (result.recipe.url == recipe.url)
-                        
-                    return swal(
+
+                        return swal(
                             '',
                             'This recipe is already in your cookbook!',
                             'error'
@@ -139,12 +139,12 @@
                 }
                 this.$store.dispatch('addToShopList', item)
                 return swal({
-                        position: 'top-right',
-                        type: 'success',
-                        title: 'Added to shopping list',
-                        showConfirmButton: false,
-                        timer: 700
-                      })
+                    position: 'top-right',
+                    type: 'success',
+                    title: 'Added to shopping list',
+                    showConfirmButton: false,
+                    timer: 700
+                })
             },
 
 
@@ -210,12 +210,13 @@
         font-size: 2rem;
         height: 3rem;
         margin-top: 20px;
-        margin-left: 10%
+        display: inline;
+        justify-content: center;
+
     }
 
     .submit {
         height: 3rem;
-        margin-right: 40%;
         margin-top: 20px;
     }
 
@@ -231,6 +232,12 @@
         position: fixed;
         right: 35px;
         z-index: 1;
+    }
+
+    .text-center {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
     }
 
     /* .modal-content {
