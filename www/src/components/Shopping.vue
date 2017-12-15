@@ -10,6 +10,7 @@
 
 
 <script>
+    const swal = require('sweetalert2')
     export default {
         name: 'shopping',
         data() {
@@ -29,6 +30,13 @@
         methods: {
             removeFromShopList(item) {
                 this.$store.dispatch("removeFromShopList", item)
+                return swal({
+                    position: 'top-right',
+                    type: 'error',
+                    title: 'Item removed from shopping list',
+                    showConfirmButton: false,
+                    timer: 300
+                  })
 
             }
         },
@@ -38,5 +46,11 @@
 
 
 <style scoped>
+.glyphicon-trash{
+    cursor: pointer;
+}
 
+.glyphicon-trash:hover{
+    color: rgb(138, 4, 4)
+}
 </style>

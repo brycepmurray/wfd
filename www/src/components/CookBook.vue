@@ -111,6 +111,13 @@
                     description: t
                 }
                 this.$store.dispatch('addToShopList', item)
+                    return swal({
+                        position: 'top-right',
+                        type: 'success',
+                        title: 'Added to shopping list',
+                        showConfirmButton: false,
+                        timer: 500
+                      })
             },
         },
         components: {}
@@ -132,6 +139,14 @@
 
     .glyphicon-trash:hover {
         color: rgb(150, 1, 1)
+    }
+
+    .glyphicon-plus:hover {
+        color: rgb(2, 117, 10)
+    }
+
+    .glyphicon-plus {
+        cursor: pointer
     }
 
     .card {
