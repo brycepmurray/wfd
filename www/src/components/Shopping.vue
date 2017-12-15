@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <h1><u>{{user.name}}'s Shopping List:</u></h1><br>
-        <div v-for="item in shopping" class="shopping">
+        <div v-for="item in shopping" class="shopping text-left">
             <h4><li><b>{{item.description}}</b>
                 <span class="glyphicon glyphicon-trash" @click="removeFromShopList(item)"></span></li> </h4>
         </div>

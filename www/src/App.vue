@@ -2,6 +2,7 @@
   <div id="no" class="container-fluid">
     <div id="app">
       <navbar></navbar>
+      
       <router-view></router-view>
     </div>
   </div>

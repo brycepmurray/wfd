@@ -11,25 +11,26 @@
                         <h1 class="modal-title">
                             <strong>{{activeRecipe.recipe.label}}</strong>
                         </h1>
-                       
+
                         <div class="row text-right">
                             <div class="col-xs-6">
-                        <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
+                                <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
+                            </div>
+                            <div class="col-xs-6 hashtag">
+                                <h5 v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-xs-6 hashtag">
-                            <h5 v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>                            
-                    </div>
-                </div>     
-            </div>
 
                     <div class="modal-body">
                         <h3>Ingredients:</h3>
-                        <h6> (click <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
+                        <h6> (click
+                            <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
                         <ul>
                             <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines">
                                 <li>{{i}}
-                                    <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span> 
-                                </li>     
+                                    <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span>
+                                </li>
                             </h5>
                         </ul>
                     </div>
@@ -75,6 +76,7 @@
 </template>
 
 <script>
+    const swal = require('sweetalert2')
     import Calendar from '../components/Calendar'
     export default {
         name: 'results',
@@ -84,7 +86,7 @@
                 activeRecipe: {}
             }
         },
-        mounted() {},
+        mounted() { },
         computed: {
             results() {
                 return this.$store.state.results
@@ -96,10 +98,8 @@
         },
         methods: {
             setActiveRecipe(result) {
-                debugger
                 this.activeRecipe = result
             },
-
 
             getRecipes() {
                 this.$store.dispatch('getRecipes', this.recipe)
@@ -108,7 +108,12 @@
                 for (var i = 0; i < this.cookBook.length; i++) {
                     var recipe = this.cookBook[i]
                     if (result.recipe.url == recipe.url)
-                        return
+                        
+                    return swal(
+                            '',
+                            'This recipe is already in your cookbook!',
+                            'error'
+                        )
                 }
                 var recipe = {
                     label: result.recipe.label,
@@ -121,6 +126,11 @@
                     calories: result.recipe.calories
                 }
                 this.$store.dispatch('addToCookBook', recipe)
+                swal(
+                    '',
+                    'This recipe has been added to your cookbook!',
+                    'success'
+                )
             },
 
             addToShopList(i) {
@@ -149,23 +159,23 @@
         text-align: center;
         width: 80%;
     }
-    
+
     .hashtag {
         padding-left: 10px
     }
-    
+
     .modal-body {
         text-align: left
     }
-    
+
     .row {
         width: 100%
     }
-    
+
     .wide {
         width: 100%
     }
-    
+
     .card {
         padding: 20px;
         margin: 10px;
@@ -174,18 +184,18 @@
         box-shadow: 5px 5px rgb(138, 138, 138);
         border-radius: 6%
     }
-    
+
     .card:hover {
         cursor: pointer;
         background-color: white;
     }
-    
+
     .card-img-top {
         width: 200px;
         height: 200px;
         border-radius: 6%
     }
-    
+
     .search {
         width: 30vw;
         color: black;
@@ -195,26 +205,27 @@
         margin-top: 20px;
         margin-left: 10%
     }
-    
+
     .submit {
         height: 3rem;
         margin-right: 40%;
         margin-top: 20px;
     }
-    
+
     .glyphicon:hover {
         color: gold
     }
-    
+
     .glyphicon-plus {
         cursor: pointer
     }
-    
+
     .static {
         position: fixed;
         right: 35px;
         z-index: 1;
     }
+
     /* .modal-content {
         background-image: url("https://cdn.pixabay.com/photo/2017/06/04/18/14/marble-2371776_960_720.jpg");
     } */
