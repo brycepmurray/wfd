@@ -138,6 +138,13 @@
                     description: i
                 }
                 this.$store.dispatch('addToShopList', item)
+                return swal({
+                        position: 'top-right',
+                        type: 'success',
+                        title: 'Added to shopping list',
+                        showConfirmButton: false,
+                        timer: 700
+                      })
             },
 
 
@@ -212,8 +219,8 @@
         margin-top: 20px;
     }
 
-    .glyphicon:hover {
-        color: gold
+    .glyphicon-plus:hover {
+        color: rgb(2, 117, 10)
     }
 
     .glyphicon-plus {
