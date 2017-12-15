@@ -16,11 +16,14 @@
             return {}
         },
         mounted() {
-            this.$store.dispatch('getShopList', this.$route.params.id)
+            this.$store.dispatch('getShopList', this.$store.state.user)
         },
         computed: {
             shopping() {
                 return this.$store.state.shopping
+            },
+            user(){
+                return this.$store.state.user
             }
         },
         methods: {

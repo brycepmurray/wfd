@@ -128,8 +128,8 @@ var store = new vuex.Store({
             })
         },
 
-        getShopList({commit, dispatch}) {
-            api('items')
+        getShopList({commit, dispatch}, user) {
+            api('items?creatorId='+ user._id)
             .then(res => {
                 commit('setShopping', res.data.data)
             })

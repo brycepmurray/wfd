@@ -15,21 +15,21 @@ function API(model, schema) {
     console.log("requesting api ", model.name)
     var id = req.params.id || req.query.id || '';
     var params = req.params.id ? req.params : {};
-    var query = req.query.with || '';
-    console.log(query)
-
+    var query = req.query || '';
+    
     if (id) {
       schema.findById(id)
-        .populate(query)
-        .then(data => {
-          return res.send(handleResponse(actions.find, data))
-        })
-        .catch(error => {
-          return next(handleResponse(actions.find, null, error))
-        })
+      .populate(query)
+      .then(data => {
+        return res.send(handleResponse(actions.find, data))
+      })
+      .catch(error => {
+        return next(handleResponse(actions.find, null, error))
+      })
     } else {
-      schema.find(params, query)
-        .populate(query)
+      console.log("query?",query)
+      schema.find(query)
+        //.populate(query)
         .then(data => {
           var result = handleResponse(actions.findAll, data);
           result.query = query

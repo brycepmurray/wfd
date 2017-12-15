@@ -13,7 +13,7 @@
             </li>
 
             <li>
-                <h3 v-for="u in user">Welcome, {{user.name}}</h3>
+                <h3>Welcome, {{user.name}}</h3>
             </li>
 
             <li class="logout">
