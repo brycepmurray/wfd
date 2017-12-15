@@ -10,7 +10,7 @@ let schema = new Schema({
     servings: { type: String},
     dietLabels: [{ type: String}],
     healthLabels: [{ type: String}],
-    indredients: [{ type: String}],
+    ingredients: [{ type: String}],
     calories: { type: String},
     creatorId: {type: ObjectId, ref: models.user.name, required: true}
 
