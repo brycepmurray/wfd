@@ -1,16 +1,18 @@
 <template>
     <div>
         <ul>
-            <li>
-                <a class="home" href="#">Home</a>
-            </li>
-            <li>
-                <a href="#shopping">Shopping List</a>
-            </li>
-
-            <li>
-                <a href="#cookbook">Cookbook</a>
-            </li>
+          <col-xs-3>
+          <li>
+            <a class="home" href="#">Home</a>
+          </li>
+          <li>
+            <a href="#shopping">Shopping List</a>
+          </li>
+          
+          <li>
+            <a href="#cookbook">Cookbook</a>
+          </li>
+        </col-xs-3>
 
             <li>
                 <h3>Welcome, {{user.name}}</h3>
@@ -35,8 +37,8 @@
             }
         },
         computed: {
-            user(){
-            return this.$store.state.user
+            user() {
+                return this.$store.state.user
             }
         },
         methods: {
@@ -52,16 +54,18 @@
 <style scoped>
     ul {
         list-style-type: none;
+        display: flex;
+        justify-content: space-between;
         margin: 0;
         padding: 0;
         overflow: hidden;
         background-color: #333;
     }
-
+    
     li {
         float: left;
     }
-
+    
     li a {
         display: block;
         color: white;
@@ -69,21 +73,22 @@
         padding: 14px 16px;
         text-decoration: none;
     }
-    h3{
+    
+    h3 {
         color: white;
         display: block;
         text-align: center
     }
-
+    
     .logout {
         float: right;
         cursor: pointer;
     }
-
+    
     .logout:hover {
         color: red;
     }
-
+    
     li a:hover {
         background-color: #111;
     }
