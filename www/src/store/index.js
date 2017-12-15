@@ -48,7 +48,7 @@ var store = new vuex.Store({
             state.user = user
         },
 
-        setShopping(state, item){
+        setShopping(state, payload){
             state.shopping = item
         }
 
@@ -108,10 +108,10 @@ var store = new vuex.Store({
             })
         },
 
-        addToShopList({commit, dispatch}, payload){
-            api.post('shopping', item)
+        addToShopList({commit, dispatch}, payload){debugger
+            api.post('shopping', payload)
             .then(res => {
-                dispatch('getShopList')
+                dispatch('getShopList', payload)
             })
             .catch(err => {
                 commit('handleError', err)
@@ -120,7 +120,7 @@ var store = new vuex.Store({
 
         getShopList({commit, dispatch}) {
             api('shopping')
-            .then(res => {
+            .then(res => {debugger
                 commit('setShopping', res.data.data)
             })
             .catch(err => {

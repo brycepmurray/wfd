@@ -20,7 +20,7 @@
                         <ul>
                             <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines">
                                 <li>{{i}}
-                                    <span @click='addToShopList(banana)' class="glyphicon glyphicon-plus"></span> 
+                                    <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span> 
                                 </li>     
                             </h5>
                         </ul>
@@ -115,8 +115,7 @@
                 this.$store.dispatch('addToCookBook', recipe)
             },
 
-            addToShopList(banana) {
-                debugger
+            addToShopList(item) {
                 this.$store.dispatch('addToShopList', item)
             },
 
