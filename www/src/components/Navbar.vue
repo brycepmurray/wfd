@@ -69,6 +69,11 @@
         padding: 14px 16px;
         text-decoration: none;
     }
+    h3{
+        color: white;
+        display: block;
+        text-align: center
+    }
 
     .logout {
         float: right;

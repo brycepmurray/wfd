@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
 
-        
+
 
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
@@ -11,21 +11,48 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Some text in the modal.</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                        <h4 class="modal-title">
+                            <strong>{{activeRecipe.label}}</strong>
+                        </h4>
+
+
+                        <div class="row text-right">
+                            <div class="col-xs-6">
+                                <img class="card-img-top" :src="activeRecipe.imageUrl" alt="Card image cap">
+                            </div>
+                            <div class="col-xs-6">
+                                <h5 v-for="i in activeRecipe.healthLabels">#{{i}}</h5>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                                <h3>Ingredients:</h3>
+                                <h6> (click <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
+                                <ul>
+                                    <h5 class="modal-title" v-for="i in activeRecipe.ingredients">
+                                        <li>{{i}}
+                                            <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span> 
+                                        </li>     
+                                    </h5>
+                                </ul>
+                            </div>
+                            <div class="modal-footer">
+                                    <h5>Servings: {{activeRecipe.servings}}</h5>
+                                    <h5>Calories: {{Math.floor(activeRecipe.calories)}}</h5>
+                                    <h5 v-for="i in activeRecipe.dietLabels">{{i}}</h5>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <a :href="activeRecipe.url" target="_blank" class="btn btn-primary">View Directions
+                                        <span class="glyphicon glyphicon-hand-right"></span>
+                                    </a>
+                                </div>
+                  </div>
                 </div>
 
             </div>
         </div>
         <!-- end of Modal -->
         <div class="row text-center">
-            <div class="card col-lg-8" style="width: 28rem;" v-for="recipe in cookBook" draggable="true" v-on:dragstart.capture="moving">
+            <div @click="setActiveRecipe(recipe)" class="card col-lg-8" style="width: 28rem;" v-for="recipe in cookBook" draggable="true"
+                v-on:dragstart.capture="moving">
                 <div class="ft">
                     <span class="glyphicon glyphicon-trash" @click="removeFromCookBook(recipe)"></span>
                 </div>
@@ -67,7 +94,7 @@
             removeFromCookBook(recipe) {
                 this.$store.dispatch("removeFromCookBook", recipe)
             },
-            setActiveRecipe(recipe) {
+            setActiveRecipe(recipe) {debugger
                 this.activeRecipe = recipe
             },
         },
@@ -107,6 +134,7 @@
         box-shadow: 5px 5px #333;
         ;
     }
+    
 
     .card-img-top {
         width: 200px;

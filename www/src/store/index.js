@@ -121,7 +121,7 @@ var store = new vuex.Store({
         removeFromShopList({commit, dispatch}, item){
             api.delete('items/' + item._id)
             .then(res => {
-                dispatch('getShopList')
+                dispatch('getShopList', {_id: item.creatorId})
             })
             .catch(err => {
                 commit('handleError', err)

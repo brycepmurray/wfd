@@ -12,8 +12,6 @@
                             <strong>{{activeRecipe.recipe.label}}</strong>
                         </h1>
                        
-
-                       
                         <div class="row text-right">
                             <div class="col-xs-6">
                         <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
@@ -21,11 +19,8 @@
                     <div class="col-xs-6 hashtag">
                             <h5 v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>                            
                     </div>
-                </div>
-                </div>
-
-
-
+                </div>     
+            </div>
 
                     <div class="modal-body">
                         <h3>Ingredients:</h3>
@@ -100,7 +95,7 @@
             }
         },
         methods: {
-            setActiveRecipe(result) {
+            setActiveRecipe(result) {debugger
                 this.activeRecipe = result
             },
 
