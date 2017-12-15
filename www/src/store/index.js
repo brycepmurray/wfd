@@ -31,6 +31,7 @@ var store = new vuex.Store({
         results: [],
         err: {},
         user: {},
+        shopping: [],
         week: {}
     },
     mutations: {
@@ -45,7 +46,12 @@ var store = new vuex.Store({
         },
         setUser(state, user){
             state.user = user
+        },
+
+        setShopping(state, item){
+            state.shopping = item
         }
+
 
 
     },
@@ -53,13 +59,13 @@ var store = new vuex.Store({
     actions: {
 //key database::::
 
-//jeff's   ====     '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b'
+//jeff's   ====     '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b&from=0&to=100'
 //leslie's  ===     '&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5&from=0&to=100'
 
 
         //result actions=======================================================================================
         getRecipes({ commit, dispatch }, payload) {
-            recipeApi(payload + '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b')
+            recipeApi(payload + '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b&from=0&to=100')
                 .then(data => {
                     commit('setResults', data.data.hits)
                     console.log(data)
@@ -96,6 +102,26 @@ var store = new vuex.Store({
             api.delete('recipes/' + recipe._id)
             .then(res => {
                 dispatch('getCookBook')
+            })
+            .catch(err => {
+                commit('handleError', err)
+            })
+        },
+
+        addToShopList({commit, dispatch}, payload){
+            api.post('shopping', item)
+            .then(res => {
+                dispatch('getShopList')
+            })
+            .catch(err => {
+                commit('handleError', err)
+            })
+        },
+
+        getShopList({commit, dispatch}) {
+            api('shopping')
+            .then(res => {
+                commit('setShopping', res.data.data)
             })
             .catch(err => {
                 commit('handleError', err)
