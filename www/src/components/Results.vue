@@ -11,16 +11,29 @@
                         <h1 class="modal-title">
                             <strong>{{activeRecipe.recipe.label}}</strong>
                         </h1>
-                        <br>
+                       
+
+                       
+                        <div class="row text-right">
+                            <div class="col-xs-6">
                         <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
                     </div>
+                    <div class="col-xs-6 hashtag">
+                            <h5 v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>                            
+                    </div>
+                </div>
+                </div>
+
+
+
+
                     <div class="modal-body">
                         <h3>Ingredients:</h3>
                         <h6> (click <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
                         <ul>
-                            <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines">
-                                <li>{{i}}
-                                    <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span> 
+                            <h5 class="modal-title" v-for="item in activeRecipe.recipe.ingredientLines">
+                                <li>{{item}}
+                                    <span @click='addToShopList(item)' class="glyphicon glyphicon-plus"></span> 
                                 </li>     
                             </h5>
                         </ul>
@@ -29,7 +42,6 @@
                         <h5>Servings: {{activeRecipe.recipe.yield}}</h5>
                         <h5>Calories: {{Math.floor(activeRecipe.recipe.calories)}}</h5>
                         <h5 v-for="i in activeRecipe.recipe.dietLabels">{{i}}</h5>
-                        <h5 v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <a :href="activeRecipe.recipe.url" target="_blank" class="btn btn-primary">View Directions
                             <span class="glyphicon glyphicon-hand-right"></span>
@@ -137,6 +149,10 @@
     .container-fluid {
         text-align: center;
         width: 80%;
+    }
+
+    .hashtag{
+        padding-left: 10px
     }
 
     .modal-body {

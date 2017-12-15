@@ -18,6 +18,11 @@ const models = {
     name: 'Recipe',
     endpoint:'recipes',
     useCustomRoutes: true
+  },
+  item: {
+    name: 'Item',
+    endpoint: 'items',
+    useCustomRoutes: true
   }
 }
 

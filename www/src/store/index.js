@@ -48,7 +48,7 @@ var store = new vuex.Store({
             state.user = user
         },
 
-        setShopping(state, payload){
+        setShopping(state, item){
             state.shopping = item
         }
 
@@ -109,26 +109,24 @@ var store = new vuex.Store({
         },
 
         addToShopList({commit, dispatch}, payload){debugger
-            api.post('shopping', payload)
+            api.post('items', payload)
             .then(res => {
-                dispatch('getShopList', payload)
+                dispatch('getShopList')
             })
             .catch(err => {
                 commit('handleError', err)
             })
         },
 
-        getShopList({commit, dispatch}) {
+        getShopList({commit, dispatch}, payload) {debugger
             api('shopping')
-            .then(res => {debugger
+            .then(res => {
                 commit('setShopping', res.data.data)
             })
             .catch(err => {
                 commit('handleError', err)
             })
         },
-       
-
 
 
         //Login and Register actions ===================================================================
@@ -145,7 +143,6 @@ var store = new vuex.Store({
 
         },
         login({ commit, dispatch }, payload) {
-            debugger
             auth.post('login', payload)
                 .then(res => {
                     commit('setUser', res.data.data)
