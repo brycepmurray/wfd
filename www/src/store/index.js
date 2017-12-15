@@ -108,7 +108,7 @@ var store = new vuex.Store({
             })
         },
 
-        addToShopList({commit, dispatch}, payload){debugger
+        addToShopList({commit, dispatch}, payload){
             api.post('items', payload)
             .then(res => {
                 dispatch('getShopList')
@@ -118,8 +118,8 @@ var store = new vuex.Store({
             })
         },
 
-        getShopList({commit, dispatch}) {
-            api('shopping')
+        getShopList({commit, dispatch}) {debugger
+            api('items')
             .then(res => {
                 commit('setShopping', res.data.data)
             })
