@@ -192,13 +192,14 @@
         background-color: rgb(255, 255, 255);
         font-size: 2rem;
         height: 3rem;
-        margin-top: 10px
+        margin-top: 10px;
+        margin-left: 10%
     }
     
     .submit {
         height: 3rem;
-        margin-right: 35%;
-        margin-top: 10px
+        margin-right: 40%;
+        margin-top: 10px;
     }
     
     .glyphicon:hover {
