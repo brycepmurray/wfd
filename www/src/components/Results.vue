@@ -227,6 +227,8 @@
     }
 
     /* .modal-content {
-        background-image: url("https://cdn.pixabay.com/photo/2017/06/04/18/14/marble-2371776_960_720.jpg");
+        background-image: url("https://cdn4.littlethings.com/app/uploads/2016/09/10649754_827245447309093_9136150693325644633_n-850x565.jpg");
+        background-size: contain;
+        background-repeat: no-repeat
     } */
 </style>

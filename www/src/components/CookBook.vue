@@ -24,7 +24,7 @@
                                 <h5 v-for="i in activeRecipe.healthLabels">#{{i}}</h5>
                             </div>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body text-left">
                                 <h3>Ingredients:</h3>
                                 <h6> (click <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
                                 <ul>
