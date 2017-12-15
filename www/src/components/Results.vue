@@ -214,8 +214,7 @@
         right: 35px;
         z-index: 1;
     }
-    
-    .modal-content {
+    /* .modal-content {
         background-image: url("https://cdn.pixabay.com/photo/2017/06/04/18/14/marble-2371776_960_720.jpg");
-    }
+    } */
 </style>
