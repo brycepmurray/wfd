@@ -82,20 +82,27 @@
         },
         mounted() {
             this.$store.dispatch('getCookBook', this.$route.params.id)
-
+            
         },
         computed: {
             cookBook() {
                 return this.$store.state.cookBook
             }
+            
 
         },
         methods: {
             removeFromCookBook(recipe) {
                 this.$store.dispatch("removeFromCookBook", recipe)
             },
-            setActiveRecipe(recipe) {debugger
+            setActiveRecipe(recipe) {
                 this.activeRecipe = recipe
+            },
+            addToShopList(t) {
+                var item = {
+                    description: t
+                }
+                this.$store.dispatch('addToShopList', item)
             },
         },
         components: {}
