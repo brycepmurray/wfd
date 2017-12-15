@@ -116,7 +116,7 @@
                     servings: result.recipe.yield,
                     dietLabels: result.recipe.dietLabels,
                     healthLabels: result.recipe.healthLabels,
-                    indredients: result.recipe.ingredientLines,
+                    ingredients: result.recipe.ingredientLines,
                     calories: result.recipe.calories
                 }
                 this.$store.dispatch('addToCookBook', recipe)
