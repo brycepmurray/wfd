@@ -1,11 +1,13 @@
 <template>
     <div class="container">
         <h1><u>{{user.name}}'s Shopping List:</u></h1><br>
-        <div v-for="item in shopping" class="shopping text-left">
-            <h4><li><b>{{item.description}}</b>
+        <div class="shopping row">
+        <div v-for="item in shopping" class="text-left">
+            <h4 class="col-md-6"><li>{{item.description}}
                 <span class="glyphicon glyphicon-trash" @click="removeFromShopList(item)"></span></li> </h4>
         </div>
     </div>
+</div>
 </template>
 
 
@@ -33,9 +35,9 @@
                 return swal({
                     position: 'top-right',
                     type: 'error',
-                    title: 'Item removed from shopping list',
+                    title: 'Removing item...',
                     showConfirmButton: false,
-                    timer: 300
+                    timer: 321
                   })
 
             }
@@ -46,8 +48,21 @@
 
 
 <style scoped>
+
+.shopping{
+    background-color: white;
+    padding: 10px;
+    border-radius: 6%;
+    width: 80%;
+    margin-left: 100px;
+}
 .glyphicon-trash{
     cursor: pointer;
+}
+
+h4{
+    font-family: 'Itim', cursive;
+    font-size: 2rem
 }
 
 .glyphicon-trash:hover{

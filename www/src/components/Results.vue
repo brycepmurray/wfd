@@ -210,7 +210,6 @@
         font-size: 2rem;
         height: 3rem;
         margin-top: 20px;
-        display: inline;
         justify-content: center;
 
     }
