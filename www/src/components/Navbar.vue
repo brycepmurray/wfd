@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-          <div class="col-xs-4">
+          <div class="col-xs-6">
           <li>
             <a class="home" href="#">Home</a>
           </li>
@@ -22,8 +22,11 @@
                 <h3 v-if="!user.name">Welcome, traveler</h3>
             </li>
 
-            <li class="logout">
-                <a @click="logout">Log Out</a>
+            <li v-if="user.name" class="logout">
+                <a v-if="user.name" @click="logout">Log Out</a>
+            </li>
+            <li v-if="!user.name" class="logout">
+                    <a @click="logout">Log In</a>
             </li>
         </ul>
 
@@ -48,6 +51,9 @@
         methods: {
             logout() {
                 this.$store.dispatch('logout')
+            },
+            login(){
+                this.$store.dispatch('authenticate')
             }
         },
         components: {}
@@ -75,13 +81,16 @@
         color: white;
         text-align: center;
         padding: 14px 16px;
-        text-decoration: none;
+        font-family: 'Itim', cursive;
+
     }
     
     h3 {
         color: white;
         display: block;
-        text-align: center
+        text-align: center;
+        font-family: 'Itim', cursive;
+
     }
     
     .logout {
