@@ -117,7 +117,7 @@
                     type: 'success',
                     title: 'Added to shopping list',
                     showConfirmButton: false,
-                    timer: 500
+                    timer: 570
                 })
             },
         },

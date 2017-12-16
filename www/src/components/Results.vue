@@ -17,7 +17,7 @@
                                 <img class="card-img-top" :src="activeRecipe.recipe.image" alt="Card image cap">
                             </div>
                             <div class="col-xs-6 hashtag">
-                                <h5 v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>
+                                <h5 class="words" v-for="i in activeRecipe.recipe.healthLabels">#{{i}}</h5>
                             </div>
                         </div>
                     </div>
@@ -27,7 +27,7 @@
                         <h6> (click
                             <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
                         <ul>
-                            <h5 class="modal-title" v-for="i in activeRecipe.recipe.ingredientLines">
+                            <h5 v-for="i in activeRecipe.recipe.ingredientLines">
                                 <li>{{i}}
                                     <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span>
                                 </li>
@@ -166,13 +166,23 @@
         text-align: center;
         width: 80%;
     }
-
-    .hashtag {
-        padding-left: 10px
+    .words{
+        font-size: 2rem
     }
+    .hashtag {
+        padding: 40px;
+        text-align: center;
 
+    
+    }
+    .modal-title{
+        background-color: rgba(0, 0, 0, 0.603);
+        color: white
+    }
     .modal-body {
-        text-align: left
+        text-align: left;
+        background-color: rgba(75, 75, 75, 0.726);
+        color: white
     }
 
     .row {
