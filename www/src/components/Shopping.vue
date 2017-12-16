@@ -1,11 +1,21 @@
 <template>
     <div class="container">
-        <h1><u>{{user.name}}'s Shopping List:</u></h1><br>
+        <h1 v-if="user.name"><u>{{user.name}}'s Shopping List:</u></h1><br>
+        <h1 v-if="!user.name">Example shopping list:</h1>
         <div class="shopping row">
         <div v-for="item in shopping" class="text-left">
-            <h4 class="col-md-6"><li>{{item.description}}
+            <h4 v-if="user.name" class="col-md-6"><li>{{item.description}}
                 <span class="glyphicon glyphicon-trash" @click="removeFromShopList(item)"></span></li> </h4>
-        </div>
+           </div>
+                <h4 v-if="!user.name" class="col-md-6 text-left">
+                <li>8 dozen eggs<span class="glyphicon glyphicon-trash"></span></li> 
+                <li>1/2 pound pig<span class="glyphicon glyphicon-trash"></span></li> 
+                <li>Sour dough bread<span class="glyphicon glyphicon-trash"></span></li> 
+                <li>Parsley<span class="glyphicon glyphicon-trash"></span></li> 
+                <li>Apples<span class="glyphicon glyphicon-trash"></span></li> 
+                
+            </h4>
+        
     </div>
 </div>
 </template>

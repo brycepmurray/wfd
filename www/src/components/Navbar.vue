@@ -18,7 +18,8 @@
             </div>
 
             <li>
-                <h3>Welcome, {{user.name}}</h3>
+                <h3 v-if="user.name">Welcome, {{user.name}}</h3>
+                <h3 v-if="!user.name">Welcome, traveler</h3>
             </li>
 
             <li class="logout">

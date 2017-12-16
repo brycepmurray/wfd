@@ -24,12 +24,13 @@
 
                     <div class="modal-body">
                         <h3>Ingredients:</h3>
-                        <h6> (click
+                        <h6 v-if="user.name"> (click
                             <span class="glyphicon glyphicon-plus"></span> to add to shopping list)</h6>
+                            <h6 v-else> Please register or login to create a shopping list.</h6>
                         <ul>
                             <h5 v-for="i in activeRecipe.recipe.ingredientLines">
                                 <li>{{i}}
-                                    <span @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span>
+                                    <span v-if="user.name" @click='addToShopList(i)' class="glyphicon glyphicon-plus"></span>                                    
                                 </li>
                             </h5>
                         </ul>
@@ -67,7 +68,8 @@
                     <p class="card-text" v-else>{{result.recipe.source}}</p>
                     <a :href="result.recipe.url" target="_blank" class="btn btn-primary wide">View Recipe</a>
 
-                    <button class="btn btn-warning wide" @click="addToCookBook(result)">Add to Cookbook</button>
+                    <button v-if="user.name" class="btn btn-warning wide" @click="addToCookBook(result)">Add to Cookbook</button>
+                    <button v-if="!user.name" class="btn btn-warning wide" @click="please()">Add to Cookbook</button>
 
                 </div>
             </div>
@@ -86,7 +88,8 @@
                 activeRecipe: {}
             }
         },
-        mounted() { },
+        mounted() {
+        },
         computed: {
             results() {
                 return this.$store.state.results
@@ -94,9 +97,38 @@
             },
             cookBook() {
                 return this.$store.state.cookBook
+            },
+
+            user() {
+                return this.$store.state.user
             }
         },
         methods: {
+            
+            please() {
+                swal({
+                    title: "Please login first",
+                    type: 'error',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: 'grey',
+                    cancelButtonText: 'Continue Browsing',
+                    confirmButtonText: 'Go to login'
+                }).then((result) => {
+                    if (result.value) {
+                        swal({
+                            position: 'top-right',
+                            type: 'success',
+                            title: 'Transferring to login page. . .',
+                            timer: 700
+                        })
+                        this.$store.dispatch('authenticate')
+                        
+
+                    }
+                })
+            },
+
             setActiveRecipe(result) {
                 this.activeRecipe = result
             },
@@ -105,6 +137,8 @@
                 this.$store.dispatch('getRecipes', this.recipe)
             },
             addToCookBook(result) {
+                debugger
+
                 for (var i = 0; i < this.cookBook.length; i++) {
                     var recipe = this.cookBook[i]
                     if (result.recipe.url == recipe.url)
@@ -166,19 +200,23 @@
         text-align: center;
         width: 80%;
     }
-    .words{
+
+    .words {
         font-size: 2rem
     }
+
     .hashtag {
         padding: 40px;
         text-align: center;
 
-    
+
     }
-    .modal-title{
+
+    .modal-title {
         background-color: rgba(0, 0, 0, 0.603);
         color: white
     }
+
     .modal-body {
         text-align: left;
         background-color: rgba(75, 75, 75, 0.726);
