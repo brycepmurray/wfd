@@ -1,20 +1,20 @@
 <template>
     <div>
         <ul>
-          <div class="col-xs-6">
-          <li>
-            <a class="home" href="#">Home</a>
-          </li>
-          <li>
-            <a href="#shopping">Shopping List</a>
-          </li>
-          
-          <li>
-            <a href="#cookbook">Cookbook</a>
-          </li>
-          <li>
-            <a href="#calendar">Calendar</a>
-              </li>
+            <div class="col-xs-6">
+                <li>
+                    <a class="home" href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#shopping">Shopping List</a>
+                </li>
+
+                <li>
+                    <a href="#cookbook">Cookbook</a>
+                </li>
+                <li>
+                    <a href="#calendar">Calendar</a>
+                </li>
             </div>
 
             <li>
@@ -26,7 +26,7 @@
                 <a v-if="user.name" @click="logout">Log Out</a>
             </li>
             <li v-if="!user.name" class="logout">
-                    <a @click="logout">Log In</a>
+                <a @click="logout">Log In</a>
             </li>
         </ul>
 
@@ -36,6 +36,7 @@
 
 
 <script>
+    const swal = require('sweetalert2')
     export default {
         name: 'navbar',
         data() {
@@ -50,9 +51,34 @@
         },
         methods: {
             logout() {
-                this.$store.dispatch('logout')
+                swal({
+                    title: 'Are you sure?',
+                    type: 'warning',
+                    showCancelButton: true,
+                    cancelButtonColor: '#d33',
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonText: "No, I'm not sure",
+                    confirmButtonText: "Yes, I'm sure",
+                    cancelButtonClass: 'btn btn-danger',
+                    confirmButtonClass: 'btn btn-success',
+                    buttonsStyling: false,
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.value) {
+                        swal(
+                            "",
+                            "You've been logged out.",
+                            'success'
+                        )
+                        this.$store.dispatch('logout')
+                       
+                    } else if (result.dismiss === 'cancel') {
+                        return
+                    }
+                })
+
             },
-            login(){
+            login() {
                 this.$store.dispatch('authenticate')
             }
         },
@@ -71,11 +97,11 @@
         overflow: hidden;
         background-color: #333;
     }
-    
+
     li {
         float: left;
     }
-    
+
     li a {
         display: block;
         color: white;
@@ -84,7 +110,7 @@
         font-family: 'Montserrat', cursive;
 
     }
-    
+
     h3 {
         color: white;
         display: block;
@@ -92,16 +118,16 @@
         font-family: 'Montserrat', cursive;
 
     }
-    
+
     .logout {
         float: right;
         cursor: pointer;
     }
-    
+
     .logout:hover {
         color: red;
     }
-    
+
     li a:hover {
         background-color: #111;
     }
