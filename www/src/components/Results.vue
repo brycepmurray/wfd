@@ -64,12 +64,10 @@
                             <strong>{{result.recipe.label}}</strong>
                         </h5>
                     </a>
-                    <p class="card-text" v-if="result.recipe.source == 'No Recipes'">Yummy!!</p>
-                    <p class="card-text" v-else>{{result.recipe.source}}</p>
-                    <a :href="result.recipe.url" target="_blank" class="btn btn-primary wide">View Recipe</a>
-
+                    
                     <button v-if="user.name" class="btn btn-warning wide" @click="addToCookBook(result)">Add to Cookbook</button>
                     <button v-if="!user.name" class="btn btn-warning wide" @click="please()">Add to Cookbook</button>
+                    <a :href="result.recipe.url" target="_blank" class="btn btn-primary wide">View Recipe <span class="glyphicon glyphicon-new-window"></span></a>
 
                 </div>
             </div>
@@ -205,6 +203,10 @@
         font-size: 2rem
     }
 
+    .glyphicon-new-window{
+        margin-left: 10px
+    }
+
     .hashtag {
         padding: 40px;
         text-align: center;
@@ -260,6 +262,13 @@
         margin-top: 20px;
         justify-content: center;
 
+    }
+
+    .btn-warning{
+        margin-top: 10px;
+    }
+    .btn-primary{
+        margin-top: 10px;
     }
 
     .submit {
