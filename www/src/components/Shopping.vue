@@ -71,7 +71,7 @@
 }
 
 h4{
-    font-family: 'Itim', cursive;
+    font-family: 'Montserrat', cursive;
     font-size: 2rem
 }
 

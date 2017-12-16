@@ -81,7 +81,7 @@
         color: white;
         text-align: center;
         padding: 14px 16px;
-        font-family: 'Itim', cursive;
+        font-family: 'Montserrat', cursive;
 
     }
     
@@ -89,7 +89,7 @@
         color: white;
         display: block;
         text-align: center;
-        font-family: 'Itim', cursive;
+        font-family: 'Montserrat', cursive;
 
     }
     

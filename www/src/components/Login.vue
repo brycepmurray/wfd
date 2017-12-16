@@ -100,7 +100,10 @@
         .action:hover {
             opacity: 1
         }
-    
+        
+        h1{
+            font-family: 'Itim', cursive;
+        }
         
         .form {
             width: 100vw;
