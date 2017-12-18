@@ -245,6 +245,8 @@
     .card:hover {
         cursor: pointer;
         background-color: white;
+        box-shadow: 5px 5px rgb(44, 44, 44);
+
     }
 
     .card-img-top {
