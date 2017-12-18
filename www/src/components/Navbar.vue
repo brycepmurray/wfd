@@ -116,6 +116,7 @@
         display: block;
         text-align: center;
         font-family: 'Montserrat', cursive;
+        margin-top: 8px
 
     }
 
