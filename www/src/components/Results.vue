@@ -40,8 +40,8 @@
                         <h5>Calories: {{Math.floor(activeRecipe.recipe.calories)}}</h5>
                         <h5 v-for="i in activeRecipe.recipe.dietLabels">{{i}}</h5>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <a :href="activeRecipe.recipe.url" target="_blank" class="btn btn-primary">View Directions
-                            <span class="glyphicon glyphicon-hand-right"></span>
+                        <a :href="activeRecipe.recipe.url" target="_blank" class="btn hey btn-primary">View Directions
+                            <span class="glyphicon glyphicon-new-window"></span>
                         </a>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                 this.$store.dispatch('getRecipes', this.recipe)
             },
             addToCookBook(result) {
-                debugger
+                
 
                 for (var i = 0; i < this.cookBook.length; i++) {
                     var recipe = this.cookBook[i]
@@ -270,18 +270,26 @@
     .btn-primary{
         margin-top: 10px;
     }
-
+/* this is for the button-primary margin correction */
+    .hey{
+        margin-top: 0px
+    }
+/* ----------------------------------------- */
     .submit {
         height: 3rem;
         margin-top: 20px;
     }
 
     .glyphicon-plus:hover {
-        color: rgb(2, 117, 10)
+        color: rgb(2, 117, 10);
+        background-color: rgba(255, 255, 255, 0.87)
     }
 
     .glyphicon-plus {
-        cursor: pointer
+        cursor: pointer;
+        outline: 1px solid green;
+        background-color: green;
+        padding: 3px
     }
 
     .static {

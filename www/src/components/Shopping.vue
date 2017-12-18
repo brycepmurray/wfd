@@ -1,7 +1,10 @@
 <template>
     <div class="container">
-        <h1 v-if="user.name"><u>{{user.name}}'s Shopping List:</u></h1><br>
+        <h1 v-if="user.name"><b>{{user.name}}</b>'s  Shopping List:</h1><br>
         <h1 v-if="!user.name">Example shopping list:</h1>
+        <div>
+               
+        </div>
         <div class="shopping row">
         <div v-for="item in shopping" class="text-left">
             <h4 v-if="user.name" class="col-md-6"><li>{{item.description}}
@@ -76,6 +79,6 @@ h4{
 }
 
 .glyphicon-trash:hover{
-    color: rgb(138, 4, 4)
+    color: rgb(138, 4, 4);
 }
 </style>

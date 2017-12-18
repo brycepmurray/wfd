@@ -45,7 +45,7 @@
                 </form>
             </div>
             <p v-if="loginForm" @click="toggleLoginForm" class="action">Don't have an account? <strong>Sign up!</strong></p>
-            <p v-else @click="toggleLoginForm" class="action">Already a user? Click here to login</p>
+            <p v-else @click="toggleLoginForm" class="action">Already a user? <b>Click here to login</b></p>
         </div>
     </template>
     <script>

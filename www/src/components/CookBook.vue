@@ -42,7 +42,7 @@
                             <h5 v-for="i in activeRecipe.dietLabels">{{i}}</h5>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             <a :href="activeRecipe.url" target="_blank" class="btn btn-primary">View Directions
-                                <span class="glyphicon glyphicon-hand-right"></span>
+                                  <span class="glyphicon glyphicon-new-window"></span>
                             </a>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     </h5>
                     <p class="card-text" v-if="recipe.source == 'No Recipes'">Yummy!!</p>
                     <p class="card-text" v-else>{{recipe.source}}</p>
-                    <a :href="recipe.url" target="_blank" class="btn btn-primary to">View Recipe</a>
+                    <a :href="recipe.url" target="_blank" class="btn btn-primary to">View Recipe <span class="glyphicon glyphicon-new-window"></span></a>
                     </button>
                 </div>
             </div>
@@ -98,7 +98,7 @@
                 this.$store.dispatch("removeFromCookBook", recipe)
                 return swal({
                     position: 'top-right',
-                    type: 'error',
+                    type: 'success',
                     title: 'Recipe removed',
                     showConfirmButton: false,
                     timer: 1000
@@ -133,6 +133,9 @@
     .ft {
         text-align: right;
     }
+    .to{
+        margin-top: 10px
+    }
 
     .glyphicon-trash:hover {
         transform: scale(2, 2)
@@ -141,13 +144,22 @@
     .glyphicon-trash:hover {
         color: rgb(150, 1, 1)
     }
+    
+    .glyphicon-new-window{
+        margin-left: 10px;
+    }
 
     .glyphicon-plus:hover {
-        color: rgb(2, 117, 10)
+        color: rgb(2, 117, 10);
+        background-color: rgba(255, 255, 255, 0.87)
     }
 
     .glyphicon-plus {
-        cursor: pointer
+        cursor: pointer;
+        outline: 1px solid green;
+        background-color: green;
+        padding: 3px;
+        color: white
     }
 
     .card {
