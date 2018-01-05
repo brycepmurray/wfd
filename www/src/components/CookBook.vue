@@ -70,59 +70,57 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 fixedYo">
-                <div class="table-title text-center">
-                    <h3>Calendar</h3>
-                </div>
+            <div class="col-lg-4 fixedYo ">
+                
                 <table class="table-fill">
                     <thead>
                         <tr>
-                            <th class="text-left">Day</th>
-                            <th class="text-left">Week 1</th>
-                            <th class="text-left">Week 2</th>
+                            <th class="day">Day</th>
+                            <th>Week 1</th>
+                            <th>Week 2</th>
                         </tr>
                     </thead>
                     <tbody class="table-hover">
                         <tr>
-                            <td class="text-left">Monday</td>
-                            <td class="text-left">$ 50,000.00</td>
-                            <td class="text-left">January</td>
+                            <td>Monday</td>
+                            <td>$ 50,000.00</td>
+                            <td>January</td>
 
                         </tr>
                         <tr>
-                            <td class="text-left">Tuesday</td>
-                            <td class="text-left">$ 50,000.00</td>
-                            <td class="text-left">January</td>
+                            <td>Tuesday</td>
+                            <td>$ 50,000.00</td>
+                            <td>January</td>
 
                         </tr>
                         <tr>
-                            <td class="text-left">Wednesday</td>
-                            <td class="text-left">$ 50,000.00</td>
-                            <td class="text-left">January</td>
+                            <td>Wednesday</td>
+                            <td>$ 50,000.00</td>
+                            <td>January</td>
 
                         </tr>
                         <tr>
-                            <td class="text-left">Thursday</td>
-                            <td class="text-left">$ 10,000.00</td>
-                            <td class="text-left">January</td>
+                            <td>Thursday</td>
+                            <td>$ 10,000.00</td>
+                            <td>January</td>
 
                         </tr>
                         <tr>
-                            <td class="text-left">Friday</td>
-                            <td class="text-left">$ 85,000.00</td>
-                            <td class="text-left">January</td>
+                            <td>Friday</td>
+                            <td>$ 85,000.00</td>
+                            <td>January</td>
 
                         </tr>
                         <tr>
-                            <td class="text-left">Saturday</td>
-                            <td class="text-left">$ 56,000.00</td>
-                            <td class="text-left">January</td>
+                            <td>Saturday</td>
+                            <td>$ 56,000.00</td>
+                            <td>January</td>
 
                         </tr>
                         <tr>
-                            <td class="text-left">Sunday</td>
-                            <td class="text-left">$ 98,000.00</td>
-                            <td class="text-left">January</td>
+                            <td>Sunday</td>
+                            <td>$ 98,000.00</td>
+                            <td>January</td>
 
                         </tr>
                     </tbody>
@@ -259,12 +257,19 @@
 
     .fixedYo{
         position: fixed;
-        right: 40px;
+        right: 80px;
+        top: 216px
+         
     }
 
     .bryce{
-        top: 60px;
+        top: 50px;
     }
+
+    .day {
+        width: 50px;
+    }
+ 
     
 
     div.table-title {
@@ -367,7 +372,7 @@
     td {
         background: #FFFFFF;
         padding: 20px;
-        text-align: left;
+        text-align: center;
         vertical-align: middle;
         font-weight: 300;
         font-size: 18px;
