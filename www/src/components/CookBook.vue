@@ -1,8 +1,6 @@
 <template>
     <div class="container-fluid">
 
-
-
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -14,7 +12,6 @@
                         <h4 class="modal-title">
                             <strong>{{activeRecipe.label}}</strong>
                         </h4>
-
 
                         <div class="row text-right">
                             <div class="col-xs-6">
@@ -129,31 +126,32 @@
         text-align: center;
         width: 70%;
     }
-
+    
     .ft {
         text-align: right;
     }
-    .to{
+    
+    .to {
         margin-top: 10px
     }
-
+    
     .glyphicon-trash:hover {
         transform: scale(2, 2)
     }
-
+    
     .glyphicon-trash:hover {
         color: rgb(150, 1, 1)
     }
     
-    .glyphicon-new-window{
+    .glyphicon-new-window {
         margin-left: 10px;
     }
-
+    
     .glyphicon-plus:hover {
         color: rgb(2, 117, 10);
         background-color: rgba(255, 255, 255, 0.87)
     }
-
+    
     .glyphicon-plus {
         cursor: pointer;
         outline: 1px solid green;
@@ -161,29 +159,28 @@
         padding: 3px;
         color: white
     }
-
+    
     .card {
         padding: 20px;
         margin: 10px;
         height: 400px;
-        background-color: rgba(255, 255, 255, 0.787);
-        box-shadow: 5px 5px rgb(138, 138, 138);
+        background-color: rgba(255, 255, 255, 0.815);
+        box-shadow: 5px 5px rgba(138, 138, 138, 0.384);
         border-radius: 6%
     }
-
+    
     .card:hover {
         cursor: pointer;
         background-color: rgb(255, 255, 255);
         box-shadow: 5px 5px #333;
         ;
     }
-
-
+    
     .card-img-top {
         width: 200px;
         height: 200px
     }
-
+    
     .text-center {
         display: flex;
         justify-content: center;
