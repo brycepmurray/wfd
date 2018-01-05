@@ -53,10 +53,10 @@
                     title: 'Removing item...',
                     showConfirmButton: false,
                     timer: 321
-                  })
+                })
 
             },
-            printList(){
+            printList() {
                 window.print()
             }
 
@@ -67,38 +67,34 @@
 
 
 <style scoped>
-
-.shopping{
-    background-color: white;
-    padding: 10px;
-    border-radius: 10%;
-    width: 100%;
-
-}
-h4{
-    font-family: 'Montserrat', cursive;
-    font-size: 2rem
-}
-
-
-.glyphicon-trash{
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.glyphicon-trash:hover{
-    color: rgb(138, 4, 4);
-}
-
-.glyphicon-print{
-    font-size: 30px;
-    cursor: pointer;
-    padding-left: 70%
-}
-
-.glyphicon-print:hover{
-    color: black;
-
-}
-
+    .shopping {
+        background-color: white;
+        padding: 10px;
+        border-radius: 20px;
+        width: 100%;
+    }
+    
+    h4 {
+        font-family: 'Montserrat', cursive;
+        font-size: 2rem
+    }
+    
+    .glyphicon-trash {
+        font-size: 15px;
+        cursor: pointer;
+    }
+    
+    .glyphicon-trash:hover {
+        color: rgb(138, 4, 4);
+    }
+    
+    .glyphicon-print {
+        font-size: 30px;
+        cursor: pointer;
+        padding-left: 70%
+    }
+    
+    .glyphicon-print:hover {
+        color: black;
+    }
 </style>
