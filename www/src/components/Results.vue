@@ -77,7 +77,6 @@
 
 <script>
     const swal = require('sweetalert2')
-    import Calendar from '../components/Calendar'
     export default {
         name: 'results',
         data() {
@@ -188,7 +187,6 @@
             }
         },
         components: {
-            Calendar
         }
     }
 </script>

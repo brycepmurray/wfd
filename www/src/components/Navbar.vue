@@ -6,15 +6,14 @@
                     <a class="home" href="#">Home</a>
                 </li>
                 <li>
-                    <a href="#shopping">Shopping List</a>
-                </li>
-
-                <li>
                     <a href="#cookbook">Cookbook</a>
                 </li>
                 <li>
-                    <a href="#calendar">Calendar</a>
+                    <a href="#shopping">Shopping List</a>
                 </li>
+
+                
+               
             </div>
 
             <li>
