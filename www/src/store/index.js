@@ -189,8 +189,8 @@ var store = new vuex.Store({
                     router.push({ name: 'Login' })
                 })
 
-        }
-
+        },
+     
     }
 })
 

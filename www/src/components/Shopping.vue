@@ -2,7 +2,9 @@
     <div class="container">
         <h1 v-if="user.name"><b>{{user.name}}</b>'s  Shopping List:</h1><br>
         <h1 v-if="!user.name">Example shopping list:</h1>
+        <span @click="printList()" class="glyphicon glyphicon-print">Print</span>
         <div>
+            
                
         </div>
         <div class="shopping row">
@@ -53,7 +55,11 @@
                     timer: 321
                   })
 
+            },
+            printList(){
+                window.print()
             }
+
         },
         components: {}
     }
@@ -65,20 +71,34 @@
 .shopping{
     background-color: white;
     padding: 10px;
-    border-radius: 6%;
-    width: 80%;
-    margin-left: 100px;
-}
-.glyphicon-trash{
-    cursor: pointer;
-}
+    border-radius: 10%;
+    width: 100%;
 
+}
 h4{
     font-family: 'Montserrat', cursive;
     font-size: 2rem
 }
 
+
+.glyphicon-trash{
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .glyphicon-trash:hover{
     color: rgb(138, 4, 4);
 }
+
+.glyphicon-print{
+    font-size: 30px;
+    cursor: pointer;
+    padding-left: 70%
+}
+
+.glyphicon-print:hover{
+    color: black;
+
+}
+
 </style>

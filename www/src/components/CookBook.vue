@@ -263,7 +263,8 @@
     }
 
     .bryce{
-        top: 50px;
+        padding-top: 50px;
+
     }
 
     .day {
@@ -308,16 +309,14 @@
 
     th {
         color: #D5DDE5;
-        ;
-        background: #1b1e24;
+        background-color: #333;
         border-bottom: 4px solid #9ea7af;
         border-right: 1px solid #343a45;
         font-size: 23px;
         font-weight: 100;
         padding: 24px;
         text-align: left;
-        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-        vertical-align: middle;
+
     }
 
     th:first-child {
@@ -340,7 +339,7 @@
     }
 
     tr:hover td {
-        background: #4E5066;
+        background: rgb(49, 116, 40);
         color: #FFFFFF;
         border-top: 1px solid #22262e;
     }
