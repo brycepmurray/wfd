@@ -258,7 +258,7 @@
     .fixedYo{
         position: fixed;
         right: 80px;
-        top: 216px
+        top: 112px
          
     }
 
