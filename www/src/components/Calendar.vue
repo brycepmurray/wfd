@@ -1,35 +1,34 @@
 <template>
     <div class="container">
-            <full-calendar :events="fcEvents" locale="en"></full-calendar>            
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="row">Day 1</div>
+            <div class="row">Day 2</div>
+            <div class="row">Day 3</div>
+            <div class="row">Day 4</div>
+            <div class="row">Day 5</div>
+            <div class="row">Day 6</div>
+            <div class="row">Day 7</div>
+            <div class="row">Day 8</div>
+            <div class="row">Day 9</div>
+            <div class="row">Day 10</div>
+            <div class="row">Day 11</div>
+            <div class="row">Day 12</div>
+            <div class="row">Day 13</div>
+            <div class="row">Day 14</div>
+          </div>
+        </div>          
     </div>
 </template>
 
 
 <script>
 
-let calendarEvents = [
-  {
-    title: 'Perfect Day for Rain',
-    start: '2016-08-25',
-    end: '2017-05-25'
-  },
-  {
-    title: 'Wait another month for VueConf',
-    start: '2017-05-21',
-    end: '2017-05-22',
-    cssClass: 'vueconf'
-  },
-  {
-    title: 'A single sunny day',
-    start: '2017-05-29',
-    end: '2017-05-29'
-  }
-]
+
 
 export default {
   data () {
     return {
-      fcEvents : calendarEvents
     }
   }
 }

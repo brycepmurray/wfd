@@ -5,6 +5,7 @@ import Login from 'components/Login'
 import Meal from 'components/Meal'
 import CookBook from 'components/CookBook'
 import Shopping from 'components/Shopping'
+import Calendar from 'components/Calendar'
 
 Vue.use(Router)
 

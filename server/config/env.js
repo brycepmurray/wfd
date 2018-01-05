@@ -3,9 +3,9 @@ let env = {
 	NODE_ENV: 'development',
 	PORT: 3000,
 	DBPROTOCOL: 'mongodb',
-	DBUSERNAME: 'admin',
-	DBPASSWORD: 'wfd',
-	DBHOST: 'ds044907.mlab.com:44907',
+	DBUSERNAME: 'bob',
+	DBPASSWORD: 'scrambledeggs',
+	DBHOST: 'ds141657.mlab.com:41657',
 	DBNAME: 'wfd',
 	SERVERNAME: 'dev-server'
 }
