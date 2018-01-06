@@ -1,8 +1,8 @@
 <template>
     <tr droppable="true" v-on:drop.capture="addItem" ondragover="event.preventDefault()">
         <td class="day">{{dayprop.name}}             </td>
-        <td><h5 data-toggle="modal" data-target="#myModal" @click="setActiveRecipe">{{dayprop.recipe.label}}</h5><img :src="dayprop.recipe.imageUrl" class="small" alt=""></td>
-        <td>January</td>
+        <td><img :src="dayprop.recipe.imageUrl" class="small" alt=""></td>
+        <td><h5 data-toggle="modal" data-target="#myModal" @click="setActiveRecipe">{{dayprop.recipe.label}}</h5></td>
     </tr>
 </template>
 <script>
