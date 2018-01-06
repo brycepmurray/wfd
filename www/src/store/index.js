@@ -35,15 +35,15 @@ var store = new vuex.Store({
         week: {},
         activeRecipe: {},
         days: [
-            {name: "Monday", recipeLabel: "", recipeUrl: ""},
-            {name: "Tuesday", recipeLabel: "", recipeUrl: ""},
-            {name: "Wednesday", recipeLabel: "", recipeUrl: ""},
-            {name: "Thursday", recipeLabel: "", recipeUrl: ""},
-            {name: "Friday", recipeLabel: "", recipeUrl: ""},
-            {name: "Saturday", recipeLabel: "", recipeUrl: ""},
-            {name: "Sunday", recipeLabel: "", recipeUrl: ""},
-            
-         
+            { name: "Monday", recipe: {} },
+            { name: "Tuesday", recipe: {} },
+            { name: "Wednesday", recipe: {} },
+            { name: "Thursday", recipe: {} },
+            { name: "Friday", recipe: {} },
+            { name: "Saturday", recipe: {} },
+            { name: "Sunday", recipe: {} },
+
+
         ]
     },
     mutations: {
@@ -56,20 +56,20 @@ var store = new vuex.Store({
         setCookBook(state, recipe) {
             state.cookBook = recipe
         },
-        setUser(state, user){
+        setUser(state, user) {
             state.user = user
         },
 
-        setShopping(state, item){
+        setShopping(state, item) {
             state.shopping = item
         },
-        setActiveRecipe(state, activeRecipe){
+        setActiveRecipe(state, activeRecipe) {
             state.activeRecipe = activeRecipe
         },
-        setDay(state, payload){
-            state.days[payload.index].recipeLabel = payload.recipe.label
-            state.days[payload.index].recipeUrl = payload.recipe.url
+        setDay(state, payload) {
             
+            vue.set(state.days[payload.index], "recipe", payload.recipe)
+
         }
 
 
@@ -77,10 +77,10 @@ var store = new vuex.Store({
     },
 
     actions: {
-//key database::::
+        //key database::::
 
-//jeff's   ====     '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b&from=0&to=100'
-//leslie's  ===     '&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5&from=0&to=100'
+        //jeff's   ====     '&app_id=878f5fef&app_key=0fb14457c6f7568967cea5fdf2757a7b&from=0&to=100'
+        //leslie's  ===     '&app_id=d774e5c8&app_key=907d1f051ac9fd1cf1fe2484c4e002b5&from=0&to=100'
 
 
         //result actions=======================================================================================
@@ -95,7 +95,7 @@ var store = new vuex.Store({
                 })
         },
 
-//cookbook actions ============================================================================================
+        //cookbook actions ============================================================================================
         addToCookBook({ commit, dispatch }, recipe) {
             api.post('recipes', recipe)
                 .then(res => {
@@ -106,16 +106,16 @@ var store = new vuex.Store({
                 })
         },
 
-        setActiveRecipe({commit, dispatch}, activeRecipe){
+        setActiveRecipe({ commit, dispatch }, activeRecipe) {
             commit('setActiveRecipe', activeRecipe)
         },
 
-        setDay({commit, dispatch}, payload){
+        setDay({ commit, dispatch }, payload) {
             commit('setDay', payload)
         },
 
         getCookBook({ commit, dispatch }) {
-            
+
             api('cookbook')
                 .then(res => {
                     commit('setCookBook', res.data.data)
@@ -125,44 +125,44 @@ var store = new vuex.Store({
                 })
         },
 
-        removeFromCookBook({commit, dispatch}, recipe){
+        removeFromCookBook({ commit, dispatch }, recipe) {
             api.delete('recipes/' + recipe._id)
-            .then(res => {
-                dispatch('getCookBook')
-            })
-            .catch(err => {
-                commit('handleError', err)
-            })
+                .then(res => {
+                    dispatch('getCookBook')
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
         },
 
-        addToShopList({commit, dispatch}, payload){
+        addToShopList({ commit, dispatch }, payload) {
             api.post('items', payload)
-            .then(res => {
-                dispatch('getShopList')
-            })
-            .catch(err => {
-                commit('handleError', err)
-            })
+                .then(res => {
+                    dispatch('getShopList')
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
         },
 
-        removeFromShopList({commit, dispatch}, item){
+        removeFromShopList({ commit, dispatch }, item) {
             api.delete('items/' + item._id)
-            .then(res => {
-                dispatch('getShopList', {_id: item.creatorId})
-            })
-            .catch(err => {
-                commit('handleError', err)
-            })
+                .then(res => {
+                    dispatch('getShopList', { _id: item.creatorId })
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
         },
 
-        getShopList({commit, dispatch}, user) {
-            api('items?creatorId='+ user._id)
-            .then(res => {
-                commit('setShopping', res.data.data)
-            })
-            .catch(err => {
-                commit('handleError', err)
-            })
+        getShopList({ commit, dispatch }, user) {
+            api('items?creatorId=' + user._id)
+                .then(res => {
+                    commit('setShopping', res.data.data)
+                })
+                .catch(err => {
+                    commit('handleError', err)
+                })
         },
 
 
@@ -217,7 +217,7 @@ var store = new vuex.Store({
                 })
 
         },
-     
+
     }
 })
 

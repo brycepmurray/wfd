@@ -1,7 +1,7 @@
 <template>
     <tr droppable="true" v-on:drop.capture="addItem" ondragover="event.preventDefault()">
         <td class="day">{{dayprop.name}}             </td>
-        <td><h5 data-toggle="modal" data-target="#myModal">{{dayprop.recipeLabel}}</h5></td>
+        <td><h5 data-toggle="modal" data-target="#myModal" @click="setActiveRecipe">{{dayprop.recipe.label}}</h5><img :src="dayprop.recipe.imageUrl" class="small" alt=""></td>
         <td>January</td>
     </tr>
 </template>
@@ -19,6 +19,9 @@
                 console.log("dinner:", dinner, "Day:", this.dayprop);
                 this.$store.dispatch('setDay', {index: this.index, recipe: dinner})
                 
+            },
+            setActiveRecipe() {
+                this.$store.dispatch("setActiveRecipe", this.mealprop)
             },
         },
         computed: {}
@@ -143,5 +146,8 @@
     
     td.text-right {
         text-align: right;
+    }
+    .small{
+        height: 10rem;
     }
 </style>
