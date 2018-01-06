@@ -15,13 +15,15 @@
                 
                
             </div>
+<div class="col-xs-4 text-left">
 
-            <li>
-                <h3 v-if="user.name">Welcome, {{user.name}}</h3>
-                <h3 v-if="!user.name">Welcome, traveler</h3>
-            </li>
+    <li>
+        <h3 v-if="user.name">Welcome, {{user.name}}</h3>
+        <h3 v-if="!user.name">Welcome, traveler</h3>
+    </li>
+</div>
 
-            <li v-if="user.name" class="logout">
+            <li v-if="user.name" class="logout pull-right">
                 <a v-if="user.name" @click="logout">Log Out</a>
             </li>
             <li v-if="!user.name" class="logout">
@@ -118,7 +120,7 @@
     }
     
     .logout {
-        float: right;
+        right: 0px;
         cursor: pointer;
     }
     
