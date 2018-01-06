@@ -214,7 +214,7 @@
         height: 75px;
         right: 0px;
         border-radius: 15px;
-        background-color: rgba(211, 211, 211, 0.400);
+        background-color: rgba(211, 211, 211, 0.540);
         box-shadow: 5px 5px rgba(138, 138, 138, 0.384);
     }
     
