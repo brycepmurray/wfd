@@ -25,7 +25,7 @@
                 <a v-if="user.name" @click="logout">Log Out</a>
             </li>
             <li v-if="!user.name" class="logout">
-                <a @click="logout">Log In</a>
+                <a href="#login">Log In</a>
             </li>
         </ul>
 

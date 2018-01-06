@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
 
-        <!-- Modal -->
+        <!-- begin modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
 
@@ -70,66 +70,74 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 fixedYo ">
-                
-                <table class="table-fill">
-                    <thead>
-                        <tr>
-                            <th class="day">Day</th>
-                            <th>Week 1</th>
-                            <th>Week 2</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-hover">
-                        <tr>
-                            <td>Monday</td>
-                            <td>$ 50,000.00</td>
-                            <td>January</td>
 
-                        </tr>
-                        <tr>
-                            <td>Tuesday</td>
-                            <td>$ 50,000.00</td>
-                            <td>January</td>
 
-                        </tr>
-                        <tr>
-                            <td>Wednesday</td>
-                            <td>$ 50,000.00</td>
-                            <td>January</td>
-
-                        </tr>
-                        <tr>
-                            <td>Thursday</td>
-                            <td>$ 10,000.00</td>
-                            <td>January</td>
-
-                        </tr>
-                        <tr>
-                            <td>Friday</td>
-                            <td>$ 85,000.00</td>
-                            <td>January</td>
-
-                        </tr>
-                        <tr>
-                            <td>Saturday</td>
-                            <td>$ 56,000.00</td>
-                            <td>January</td>
-
-                        </tr>
-                        <tr>
-                            <td>Sunday</td>
-                            <td>$ 98,000.00</td>
-                            <td>January</td>
-
-                        </tr>
-                    </tbody>
-                </table>
+            <div id="main">
+                <button id="openNav" class="w3-button w3-teal w3-xlarge" @click="openCal()">&#9776;</button>
             </div>
+            <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none" id="mySidebar">
+                <!-- begin calendar -->
+                <div class="col-lg-4 fixedYo ">
+                    <button class="w3-bar-item w3-button w3-large" @click="closeCal()">Close &times;</button>
+                    <table class="table-fill">
+                        <thead>
+                            <tr>
+                                <th class="day">Day</th>
+                                <th>Week 1</th>
+                                <th>Week 2</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-hover">
+                            <tr>
+                                <td>Monday</td>
+                                <td>$ 50,000.00</td>
+                                <td>January</td>
 
-            
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>$ 50,000.00</td>
+                                <td>January</td>
+
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>$ 50,000.00</td>
+                                <td>January</td>
+
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>$ 10,000.00</td>
+                                <td>January</td>
+
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>$ 85,000.00</td>
+                                <td>January</td>
+
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td>$ 56,000.00</td>
+                                <td>January</td>
+
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>$ 98,000.00</td>
+                                <td>January</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end calendar                  -->
+
+
+            </div>
         </div>
-    </div>
     </div>
 </template>
 
@@ -181,6 +189,20 @@
                     timer: 570
                 })
             },
+
+            openCal() {
+                document.getElementById("main").style.marginRight = "25%";
+                document.getElementById("mySidebar").style.width = "40%";
+                document.getElementById("mySidebar").style.height = "70%";
+                document.getElementById("mySidebar").style.display = "block";
+                document.getElementById("openNav").style.display = 'none';
+            },
+
+            closeCal() {
+                document.getElementById("main").style.marginRight = "0%";
+                document.getElementById("mySidebar").style.display = "none";
+                document.getElementById("openNav").style.display = "inline-block";
+            }
         },
         components: {}
     }
@@ -253,14 +275,13 @@
 
     /* -----------------------------------------------------------------TABLE */
 
-    .fixedYo{
+    .fixedYo {
         position: fixed;
         right: 80px;
         top: 112px
-         
     }
 
-    .bryce{
+    .bryce {
         padding-top: 50px;
 
     }
@@ -268,8 +289,8 @@
     .day {
         width: 50px;
     }
- 
-    
+
+
 
     div.table-title {
         display: block;
