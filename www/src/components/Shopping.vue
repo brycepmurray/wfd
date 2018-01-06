@@ -61,7 +61,9 @@
             }
 
         },
-        components: {}
+        components: {
+            
+        }
     }
 </script>
 

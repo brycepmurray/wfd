@@ -186,8 +186,7 @@
                 console.log('We are moving')
             }
         },
-        components: {
-        }
+        components: {}
     }
 </script>
 

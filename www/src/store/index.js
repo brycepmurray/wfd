@@ -32,7 +32,19 @@ var store = new vuex.Store({
         err: {},
         user: {},
         shopping: [],
-        week: {}
+        week: {},
+        activeRecipe: {},
+        days: [
+            {name: "Monday", recipeLabel: "", recipeUrl: ""},
+            {name: "Tuesday", recipeLabel: "", recipeUrl: ""},
+            {name: "Wednesday", recipeLabel: "", recipeUrl: ""},
+            {name: "Thursday", recipeLabel: "", recipeUrl: ""},
+            {name: "Friday", recipeLabel: "", recipeUrl: ""},
+            {name: "Saturday", recipeLabel: "", recipeUrl: ""},
+            {name: "Sunday", recipeLabel: "", recipeUrl: ""},
+            
+         
+        ]
     },
     mutations: {
         setResults(state, results) {
@@ -50,6 +62,14 @@ var store = new vuex.Store({
 
         setShopping(state, item){
             state.shopping = item
+        },
+        setActiveRecipe(state, activeRecipe){
+            state.activeRecipe = activeRecipe
+        },
+        setDay(state, payload){
+            state.days[payload.index].recipeLabel = payload.recipe.label
+            state.days[payload.index].recipeUrl = payload.recipe.url
+            
         }
 
 
@@ -86,6 +106,13 @@ var store = new vuex.Store({
                 })
         },
 
+        setActiveRecipe({commit, dispatch}, activeRecipe){
+            commit('setActiveRecipe', activeRecipe)
+        },
+
+        setDay({commit, dispatch}, payload){
+            commit('setDay', payload)
+        },
 
         getCookBook({ commit, dispatch }) {
             

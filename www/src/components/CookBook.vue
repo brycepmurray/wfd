@@ -50,27 +50,10 @@
         <!-- end of Modal -->
 
         <div class="row text-left " id="main">
-            <div class="col-lg-10 col-xs-8 text-center bryce">
-                <div @click="setActiveRecipe(recipe)" class="card col-lg-8" style="width: 28rem;" v-for="recipe in cookBook" draggable="true"
-                    v-on:dragstart.capture="moving">
-                    <div class="ft">
-                        <span class="glyphicon glyphicon-trash" @click="removeFromCookBook(recipe)"></span>
-                    </div>
-                    <img class="card-img-top" :src="recipe.imageUrl" alt="Card image cap" data-toggle="modal" data-target="#myModal">
-                    <div class="card-block">
-                        <h5 data-toggle="modal" data-target="#myModal" class="card-title">
-                            <strong>{{recipe.label}}</strong>
-                        </h5>
-                        <p class="card-text" v-if="recipe.source == 'No Recipes'">Yummy!!</p>
-                        <p class="card-text" v-else>{{recipe.source}}</p>
-                        <a :href="recipe.url" target="_blank" class="btn btn-primary to">View Recipe
-                            <span class="glyphicon glyphicon-new-window"></span>
-                        </a>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
+                <div v-for="meal in cookBook">
+                        <Meal :mealprop="meal"></Meal>
+                    </div>
 
             <div >
                 <button id="openNav" class="w3-button w3-teal w3-xlarge" @click="openCal()"><span class="glyphicon glyphicon-calendar"></span></button>
@@ -82,54 +65,20 @@
                     <table class="table-fill">
                         <thead>
                             <tr>
-                                <th class="day">Day</th>
+                                <th class="day" >Day</th>
                                 <th>Week 1</th>
                                 <th>Week 2</th>
                             </tr>
                         </thead>
                         <tbody class="table-hover">
-                            <tr>
-                                <td class="day">Monday</td>
-                                <td>$ 50,000.00</td>
-                                <td>January</td>
+                            
+                                <!-- <td class="day">Monday</td>
+                                <td droppable="true" v-on:drop.capture="addItem" ondragover="event.preventDefault()">$ 50,000.00</td>
+                                <td>January</td> -->
+                                <day :dayprop="day" :index="i" v-for="(day, i) in days"></day>
 
-                            </tr>
-                            <tr>
-                                <td class="day">Tuesday</td>
-                                <td>$ 50,000.00</td>
-                                <td>January</td>
-
-                            </tr>
-                            <tr>
-                                <td class="day">Wednesday</td>
-                                <td>$ 50,000.00</td>
-                                <td>January</td>
-
-                            </tr>
-                            <tr>
-                                <td class="day">Thursday</td>
-                                <td>$ 10,000.00</td>
-                                <td>January</td>
-
-                            </tr>
-                            <tr>
-                                <td class="day">Friday</td>
-                                <td>$ 85,000.00</td>
-                                <td>January</td>
-
-                            </tr>
-                            <tr>
-                                <td class="day">Saturday</td>
-                                <td>$ 56,000.00</td>
-                                <td>January</td>
-
-                            </tr>
-                            <tr>
-                                <td class="day">Sunday</td>
-                                <td>$ 98,000.00</td>
-                                <td>January</td>
-
-                            </tr>
+                            
+                           
                         </tbody>
                     </table>
                 </div>
@@ -144,11 +93,15 @@
 
 <script>
     const swal = require('sweetalert2')
+    import Meal from './Meal'
+    import Day from './Day'
     export default {
         name: 'cookBook',
         data() {
             return {
-                activeRecipe: {}
+                day:{
+                    name: "Sunday"
+                }
             }
         },
         mounted() {
@@ -158,24 +111,17 @@
         computed: {
             cookBook() {
                 return this.$store.state.cookBook
+            },
+            activeRecipe(){
+                return this.$store.state.activeRecipe
+            },
+            days(){
+                return this.$store.state.days
             }
-
-
         },
+
         methods: {
-            removeFromCookBook(recipe) {
-                this.$store.dispatch("removeFromCookBook", recipe)
-                return swal({
-                    position: 'top-right',
-                    type: 'success',
-                    title: 'Recipe removed',
-                    showConfirmButton: false,
-                    timer: 1000
-                })
-            },
-            setActiveRecipe(recipe) {
-                this.activeRecipe = recipe
-            },
+           
             addToShopList(t) {
                 var item = {
                     description: t
@@ -204,7 +150,11 @@
                 document.getElementById("openNav").style.display = "inline-block";
             }
         },
-        components: {}
+
+        components: {
+            Meal,
+            Day
+        }
     }
 </script>
 <style scoped>
@@ -242,11 +192,11 @@
     }
     
     .to {
-        margin-top: 10px
+        margin-top: 10px;
     }
     
     .glyphicon-trash:hover {
-        transform: scale(2, 2)
+        transform: scale(2, 2);
     }
     
     .glyphicon-trash:hover {
@@ -259,14 +209,14 @@
     
     .glyphicon-plus:hover {
         color: rgb(2, 117, 10);
-        background-color: rgba(255, 255, 255, 0.87)
+        background-color: rgba(255, 255, 255, 0.87);
     }
     
     .glyphicon-plus {
         outline: 1px solid green;
         background-color: green;
         padding: 3px;
-        color: white
+        color: white;
     }
     
     .card {
@@ -275,19 +225,19 @@
         height: 400px;
         background-color: rgba(255, 255, 255, 0.700);
         box-shadow: 5px 5px rgba(138, 138, 138, 0.384);
-        border-radius: 6%
+        border-radius: 6%;
     }
     
     .card:hover {
         cursor: pointer;
         background-color: rgb(255, 255, 255);
         box-shadow: 5px 5px #333;
-        ;
+        
     }
     
     .card-img-top {
         width: 200px;
-        height: 200px
+        height: 200px;
     }
     
     .text-center {
