@@ -85,8 +85,7 @@
                 activeRecipe: {}
             }
         },
-        mounted() {
-        },
+        mounted() {},
         computed: {
             results() {
                 return this.$store.state.results
@@ -101,7 +100,7 @@
             }
         },
         methods: {
-            
+
             please() {
                 swal({
                     title: "Please login first",
@@ -120,7 +119,7 @@
                             timer: 700
                         })
                         this.$store.dispatch('authenticate')
-                        
+
 
                     }
                 })
@@ -134,17 +133,17 @@
                 this.$store.dispatch('getRecipes', this.recipe)
             },
             addToCookBook(result) {
-                
+
 
                 for (var i = 0; i < this.cookBook.length; i++) {
                     var recipe = this.cookBook[i]
                     if (result.recipe.url == recipe.url)
 
                         return swal(
-                            '',
-                            'This recipe is already in your cookbook!',
-                            'error'
-                        )
+                        '',
+                        'This recipe is already in your cookbook!',
+                        'error'
+                    )
                 }
                 var recipe = {
                     label: result.recipe.label,
@@ -186,8 +185,7 @@
                 console.log('We are moving')
             }
         },
-        components: {
-        }
+        components: {}
     }
 </script>
 
@@ -196,63 +194,60 @@
         text-align: center;
         width: 80%;
     }
-
+    
     .words {
         font-size: 2rem
     }
-
-    .glyphicon-new-window{
+    
+    .glyphicon-new-window {
         margin-left: 10px
     }
-
+    
     .hashtag {
         padding: 40px;
         text-align: center;
-
-
     }
-
+    
     .modal-title {
         background-color: rgba(0, 0, 0, 0.603);
         color: white
     }
-
+    
     .modal-body {
         text-align: left;
         background-color: rgba(75, 75, 75, 0.726);
         color: white
     }
-
+    
     .row {
         width: 100%
     }
-
+    
     .wide {
         width: 100%
     }
-
+    
     .card {
-        padding: 20px;
-        margin: 10px;
+        padding: 15px;
+        margin: 25px;
         height: 400px;
-        background-color: rgba(255, 255, 255, 0.787);
+        background-color: rgba(255, 255, 255, 0.700);
         box-shadow: 5px 5px rgb(138, 138, 138);
         border-radius: 6%
     }
-
+    
     .card:hover {
         cursor: pointer;
         background-color: white;
         box-shadow: 5px 5px rgb(44, 44, 44);
-
     }
-
+    
     .card-img-top {
         width: 200px;
         height: 200px;
         border-radius: 6%
     }
-
+    
     .search {
         width: 30vw;
         color: black;
@@ -261,49 +256,50 @@
         height: 3rem;
         margin-top: 20px;
         justify-content: center;
-
     }
-
-    .btn-warning{
+    
+    .btn-warning {
         margin-top: 10px;
     }
-    .btn-primary{
+    
+    .btn-primary {
         margin-top: 10px;
     }
-/* this is for the button-primary margin correction */
-    .hey{
+    /* this is for the button-primary margin correction */
+    
+    .hey {
         margin-top: 0px
     }
-/* ----------------------------------------- */
+    /* ----------------------------------------- */
+    
     .submit {
         height: 3rem;
         margin-top: 20px;
     }
-
+    
     .glyphicon-plus:hover {
         color: rgb(2, 117, 10);
         background-color: rgba(255, 255, 255, 0.87)
     }
-
+    
     .glyphicon-plus {
         cursor: pointer;
         outline: 1px solid green;
         background-color: green;
         padding: 3px
     }
-
+    
     .static {
         position: fixed;
         right: 35px;
         z-index: 1;
     }
-
+    
     .text-center {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
     }
-
     /* .modal-content {
         background-image: url("https://cdn4.littlethings.com/app/uploads/2016/09/10649754_827245447309093_9136150693325644633_n-850x565.jpg");
         background-size: contain;

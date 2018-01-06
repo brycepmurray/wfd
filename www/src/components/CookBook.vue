@@ -270,8 +270,9 @@
     }
     
     .card {
-        padding: 20px;
-        margin: 10px;
+        padding: 15px;
+        left: 65px;
+        margin: 25px;
         height: 400px;
         background-color: rgba(255, 255, 255, 0.700);
         box-shadow: 5px 5px rgba(138, 138, 138, 0.384);
@@ -308,7 +309,7 @@
     .fixedYo {
         position: fixed;
         right: 80px;
-        top: 80px
+        top: 88px;
     }
     
     .bryce {
