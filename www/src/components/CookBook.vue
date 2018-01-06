@@ -65,9 +65,8 @@
                     <table class="table-fill">
                         <thead>
                             <tr>
-                                <th class="day" >Day</th>
-                                <th>Week 1</th>
-                                <th>Week 2</th>
+                                <th class="day" >Week 1</th>
+                                
                             </tr>
                         </thead>
                         <tbody class="table-hover">
