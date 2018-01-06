@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul>
-            <div class="col-xs-6">
+            <div class="col-xs-5">
                 <li>
                     <a class="home" href="#">Home</a>
                 </li>
@@ -15,13 +15,15 @@
                 
                
             </div>
+<div class="col-xs-4 text-left">
 
-            <li>
-                <h3 v-if="user.name">Welcome, {{user.name}}</h3>
-                <h3 v-if="!user.name">Welcome, traveler</h3>
-            </li>
+    <li>
+        <h3 v-if="user.name">Welcome, {{user.name}}</h3>
+        <h3 v-if="!user.name">Welcome, traveler</h3>
+    </li>
+</div>
 
-            <li v-if="user.name" class="logout">
+            <li v-if="user.name" class="logout pull-right">
                 <a v-if="user.name" @click="logout">Log Out</a>
             </li>
             <li v-if="!user.name" class="logout">
@@ -70,7 +72,7 @@
                             'success'
                         )
                         this.$store.dispatch('logout')
-                       
+
                     } else if (result.dismiss === 'cancel') {
                         return
                     }
@@ -96,38 +98,36 @@
         overflow: hidden;
         background-color: #333;
     }
-
+    
     li {
         float: left;
     }
-
+    
     li a {
         display: block;
         color: white;
         text-align: center;
         padding: 14px 16px;
         font-family: 'Montserrat', cursive;
-
     }
-
+    
     h3 {
         color: white;
         display: block;
         text-align: center;
         font-family: 'Montserrat', cursive;
         margin-top: 9px
-
     }
-
+    
     .logout {
-        float: right;
+        right: 0px;
         cursor: pointer;
     }
-
+    
     .logout:hover {
         color: red;
     }
-
+    
     li a:hover {
         background-color: #111;
     }
