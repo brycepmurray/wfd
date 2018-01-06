@@ -49,8 +49,8 @@
         </div>
         <!-- end of Modal -->
 
-        <div class="row text-left ">
-            <div class="col-lg-8 text-center bryce">
+        <div class="row text-left " id="main">
+            <div class="col-lg-10 col-xs-8 text-center bryce">
                 <div @click="setActiveRecipe(recipe)" class="card col-lg-8" style="width: 28rem;" v-for="recipe in cookBook" draggable="true"
                     v-on:dragstart.capture="moving">
                     <div class="ft">
@@ -72,13 +72,13 @@
             </div>
 
 
-            <div id="main">
-                <button id="openNav" class="w3-button w3-teal w3-xlarge" @click="openCal()">&#9776;</button>
+            <div >
+                <button id="openNav" class="w3-button w3-teal w3-xlarge" @click="openCal()">Open Calendar</button>
             </div>
             <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none" id="mySidebar">
                 <!-- begin calendar -->
-                <div class="col-lg-4 fixedYo ">
-                    <button class="w3-bar-item w3-button w3-large" @click="closeCal()">Close &times;</button>
+                <div class="col-lg-4 col-xs-4 fixedYo ">
+                    <span @click="closeCal()" class="w3-bar-item w3-button w3-large glyphicon glyphicon-remove"></span>
                     <table class="table-fill">
                         <thead>
                             <tr>
@@ -89,43 +89,43 @@
                         </thead>
                         <tbody class="table-hover">
                             <tr>
-                                <td>Monday</td>
+                                <td class="day">Monday</td>
                                 <td>$ 50,000.00</td>
                                 <td>January</td>
 
                             </tr>
                             <tr>
-                                <td>Tuesday</td>
+                                <td class="day">Tuesday</td>
                                 <td>$ 50,000.00</td>
                                 <td>January</td>
 
                             </tr>
                             <tr>
-                                <td>Wednesday</td>
+                                <td class="day">Wednesday</td>
                                 <td>$ 50,000.00</td>
                                 <td>January</td>
 
                             </tr>
                             <tr>
-                                <td>Thursday</td>
+                                <td class="day">Thursday</td>
                                 <td>$ 10,000.00</td>
                                 <td>January</td>
 
                             </tr>
                             <tr>
-                                <td>Friday</td>
+                                <td class="day">Friday</td>
                                 <td>$ 85,000.00</td>
                                 <td>January</td>
 
                             </tr>
                             <tr>
-                                <td>Saturday</td>
+                                <td class="day">Saturday</td>
                                 <td>$ 56,000.00</td>
                                 <td>January</td>
 
                             </tr>
                             <tr>
-                                <td>Sunday</td>
+                                <td class="day">Sunday</td>
                                 <td>$ 98,000.00</td>
                                 <td>January</td>
 
@@ -208,6 +208,17 @@
     }
 </script>
 <style scoped>
+    #openNav{
+        margin-top: 40px;
+        width: 150px;
+        height: 100px;
+        
+    }
+
+    .glyphicon{
+        cursor: pointer;
+    }
+
     .container-fluid {
         text-align: center;
         width: 90%;
@@ -239,7 +250,6 @@
     }
 
     .glyphicon-plus {
-        cursor: pointer;
         outline: 1px solid green;
         background-color: green;
         padding: 3px;
@@ -275,6 +285,15 @@
 
     /* -----------------------------------------------------------------TABLE */
 
+    .glyphicon-remove{
+        font-size: 30px;
+        
+
+    }
+    .glyphicon-remove:hover{
+        color: rgb(105, 9, 9)
+    }
+
     .fixedYo {
         position: fixed;
         right: 80px;
@@ -284,10 +303,11 @@
     .bryce {
         padding-top: 50px;
 
+
     }
 
     .day {
-        width: 50px;
+        width: 2em !important;
     }
 
 
@@ -335,6 +355,7 @@
         font-weight: 100;
         padding: 24px;
         text-align: left;
+
 
     }
 
@@ -396,6 +417,7 @@
         font-size: 18px;
         text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
         border-right: 1px solid #C1C3D1;
+        width: 5em;
     }
 
     td:last-child {

@@ -51,7 +51,7 @@
         <div class="row search-bar">
             <form @submit.prevent="getRecipes()" class="text-center">
                 <input class="search" type="text" v-model="recipe" placeholder="Search millions of recipes...">
-                <button type="submit" class="submit btn btn-default">Search</button>
+                <button type="submit" class="submit btn btn-default"><span class="glyphicon glyphicon-search"></span> Search</button>
             </form>
         </div>
         <div class="row text-center">
