@@ -378,11 +378,6 @@
         text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
     }
 
-    tr:hover td {
-        background: rgb(49, 116, 40);
-        color: #FFFFFF;
-        border-top: 1px solid #22262e;
-    }
 
     tr:first-child {
         border-top: none;
@@ -390,14 +385,6 @@
 
     tr:last-child {
         border-bottom: none;
-    }
-
-    tr:nth-child(odd) td {
-        background: #EBEBEB;
-    }
-
-    tr:nth-child(odd):hover td {
-        background: #4E5066;
     }
 
     tr:last-child td:first-child {
