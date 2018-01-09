@@ -1,7 +1,7 @@
 <template>
     <tr droppable="true" v-on:drop.capture="addItem" ondragover="event.preventDefault()">
         <td class="day">{{dayprop.name}}             </td>
-        <td><img :src="dayprop.recipe.imageUrl" class="small" alt=""></td>
+        <td><img :src="dayprop.recipe.imageUrl" class="ian" alt=""></td>
         <td><h5 data-toggle="modal" data-target="#myModal" @click="setActiveRecipe">{{dayprop.recipe.label}}</h5></td>
     </tr>
 </template>
@@ -10,15 +10,17 @@
         name: 'cookBook',
         props: ["dayprop", "index"],
         data() {
-            return {
-            }
+            return {}
         },
         methods: {
             addItem(event) {
                 var dinner = JSON.parse(event.dataTransfer.getData('text/javascript'))
                 console.log("dinner:", dinner, "Day:", this.dayprop);
-                this.$store.dispatch('setDay', {index: this.index, recipe: dinner})
-                this.$store.dispatch('saveDays', this.days)         
+                this.$store.dispatch('setDay', {
+                    index: this.index,
+                    recipe: dinner
+                })
+
             },
             setActiveRecipe() {
                 this.$store.dispatch("setActiveRecipe", this.mealprop)
@@ -38,6 +40,7 @@
     .day {
         width: 2em !important;
     }
+    
     div.table-title {
         display: block;
         margin: auto;
@@ -154,7 +157,8 @@
     td.text-right {
         text-align: right;
     }
-    .small{
-        height: 10rem;
+    
+    .ian {
+        height: 9rem;
     }
 </style>
