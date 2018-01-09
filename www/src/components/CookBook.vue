@@ -355,7 +355,7 @@
         padding: 20px;
         text-align: center;
         vertical-align: middle;
-        font-weight: 300;
+        font-weight: 300; 
         font-size: 18px;
         text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
         border-right: 1px solid #C1C3D1;
