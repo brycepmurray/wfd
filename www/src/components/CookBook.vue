@@ -1,6 +1,5 @@
 <template>
     <div class="container-fluid">
-
         <!-- begin modal -->
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -44,7 +43,20 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
+            <div class="row text-center">
+                    <div @click="setActiveRecipe(result)" class="card col-lg-8" style="width: 28rem;" v-for="result in results" draggable="true"
+                        v-on:dragstart.capture="moving">
+                        <img data-toggle="modal" data-target="#myModal" class="card-img-top" :src="result.recipe.image" alt="Card image cap">
+                        <div class="card-block">
+                                <a>
+                                        <h5 data-toggle="modal" data-target="#myModal" class="card-title">
+                                            <strong>{{result.recipe.label}}</strong>
+                                        </h5>
+                                    </a>
+                                    <a :href="result.recipe.url" target="_blank" class="btn btn-primary wide">View Recipe <span class="glyphicon glyphicon-new-window"></span></a>
+                        </div>
+                        </div>
             </div>
         </div>
         <!-- end of Modal -->
@@ -98,7 +110,7 @@
         name: 'cookBook',
         data() {
             return {
-                day:{
+                day: {
                     name: "Sunday"
                 }
             }
@@ -111,16 +123,16 @@
             cookBook() {
                 return this.$store.state.cookBook
             },
-            activeRecipe(){
+            activeRecipe() {
                 return this.$store.state.activeRecipe
             },
-            days(){
+            days() {
                 return this.$store.state.days
             }
         },
 
         methods: {
-           
+
             addToShopList(t) {
                 var item = {
                     description: t
@@ -218,7 +230,7 @@
         color: white;
     }
     
-    .card {
+    .row text-center {
         padding: 15px;
         left: 65px;
         margin: 25px;
@@ -232,7 +244,6 @@
         cursor: pointer;
         background-color: rgb(255, 255, 255);
         box-shadow: 5px 5px #333;
-        
     }
     
     .card-img-top {
