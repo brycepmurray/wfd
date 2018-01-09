@@ -60,13 +60,7 @@
             </div>
         </div>
         <!-- end of Modal -->
-
-        <div class="row text-left " id="main">
-
-                <div v-for="meal in cookBook">
-                        <Meal :mealprop="meal"></Meal>
-                    </div>
-
+        <div class="row text-center" id="main">
             <div >
                 <button id="openNav" class="w3-button w3-teal w3-xlarge" @click="openCal()"><span class="glyphicon glyphicon-calendar"></span></button>
             </div>
@@ -75,12 +69,7 @@
                 <div class="col-lg-4 col-xs-4 fixedYo ">
                     <span @click="closeCal()" class="w3-bar-item w3-button w3-large glyphicon glyphicon-remove"></span>
                     <table class="table-fill">
-                        <thead>
-                            <tr>
-                                <th class="day" >Week 1</th>
-                                
-                            </tr>
-                        </thead>
+                       
                         <tbody class="table-hover">
                             
                                 <!-- <td class="day">Monday</td>
@@ -97,6 +86,12 @@
 
 
             </div>
+            
+            <div v-for="meal in cookBook">
+                <Meal :mealprop="meal"></Meal>
+            </div>
+            
+            
         </div>
     </div>
 </template>
@@ -148,7 +143,7 @@
             },
 
             openCal() {
-                document.getElementById("main").style.marginRight = "25%";
+                document.getElementById("main").style.marginRight = "48%";
                 document.getElementById("mySidebar").style.width = "40%";
                 document.getElementById("mySidebar").style.height = "70%";
                 document.getElementById("mySidebar").style.display = "block";
@@ -169,6 +164,8 @@
     }
 </script>
 <style scoped>
+    /* Card styling Start */
+    
     #openNav {
         position: fixed;
         width: 75px;
@@ -269,7 +266,7 @@
     .fixedYo {
         position: fixed;
         right: 80px;
-        top: 88px;
+        top: 50px;
     }
     
     .bryce {
