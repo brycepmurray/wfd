@@ -23,6 +23,11 @@ const models = {
     name: 'Item',
     endpoint: 'items',
     useCustomRoutes: true
+  },
+  week: {
+    name: 'Week',
+    endpoint: 'weeks',
+    
   }
 }
 

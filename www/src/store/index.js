@@ -34,17 +34,7 @@ var store = new vuex.Store({
         shopping: [],
         week: {},
         activeRecipe: {},
-        days: [
-            { name: "Monday", recipe: {} },
-            { name: "Tuesday", recipe: {} },
-            { name: "Wednesday", recipe: {} },
-            { name: "Thursday", recipe: {} },
-            { name: "Friday", recipe: {} },
-            { name: "Saturday", recipe: {} },
-            { name: "Sunday", recipe: {} },
-
-
-        ]
+        
     },
     mutations: {
         setResults(state, results) {
@@ -67,9 +57,10 @@ var store = new vuex.Store({
             state.activeRecipe = activeRecipe
         },
         setDay(state, payload) {
-            
             vue.set(state.days[payload.index], "recipe", payload.recipe)
-
+        },
+        setDays(state, data){
+            state.week = data
         }
 
 
@@ -113,6 +104,14 @@ var store = new vuex.Store({
         setDay({ commit, dispatch }, payload) {
             commit('setDay', payload)
         },
+
+        saveDays({commit, dispatch}, days){
+            api.put('savedays/', days)
+            .then(res => {
+                commit('setDays', res.data.data)
+            })
+        },
+        
 
         getCookBook({ commit, dispatch }) {
 
@@ -179,10 +178,19 @@ var store = new vuex.Store({
                 })
 
         },
+        createWeek({commit, dispatch}, week){
+            api.post('weeks', week)
+                .then(res => {
+                    commit('setDays', res.data.data)
+                })
+        },
+        
+
         login({ commit, dispatch }, payload) {
             auth.post('login', payload)
                 .then(res => {
                     commit('setUser', res.data.data)
+                    commit('setDays', res.data.data.days)
                     router.push({ name: 'Results' })
                     console.log(res)
                 })
@@ -209,6 +217,9 @@ var store = new vuex.Store({
 
                     router.push({ name: 'Results' })
                     commit('setUser', res.data.data)
+                    console.log(res.data.data)
+
+
                 })
                 .catch(err => {
 

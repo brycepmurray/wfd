@@ -105,8 +105,9 @@
         },
         mounted() {
             this.$store.dispatch('getCookBook', this.$route.params.id)
-
+            this.$store.dispatch('getWeek')
         },
+        
         computed: {
             cookBook() {
                 return this.$store.state.cookBook
@@ -115,11 +116,13 @@
                 return this.$store.state.activeRecipe
             },
             days(){
-                return this.$store.state.days
+                return this.$store.state.week
             }
         },
 
         methods: {
+
+            
            
             addToShopList(t) {
                 var item = {

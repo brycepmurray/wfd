@@ -18,13 +18,20 @@
                 var dinner = JSON.parse(event.dataTransfer.getData('text/javascript'))
                 console.log("dinner:", dinner, "Day:", this.dayprop);
                 this.$store.dispatch('setDay', {index: this.index, recipe: dinner})
-                
+                this.$store.dispatch('saveDays', this.days)         
             },
             setActiveRecipe() {
                 this.$store.dispatch("setActiveRecipe", this.mealprop)
             },
+            saveDays(){
+                this.$store.dispatch('saveDays', this.days)
+            }
         },
-        computed: {}
+        computed: {
+            days(){
+                return this.$store.state.days
+            }
+        }
     }
 </script>
 <style>
