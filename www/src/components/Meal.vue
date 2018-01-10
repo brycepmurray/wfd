@@ -1,7 +1,7 @@
 <template>
     <div class="meal">
         
-            <div @click="setActiveRecipe()" class="card col-xs-8" style="width: 28rem;" draggable="true" v-on:dragstart.capture="moving">
+            <div @click="setActiveRecipe()" class="card" style="width: 28rem;" draggable="true" v-on:dragstart.capture="moving">
                 <div class="ft">
                     <span class="glyphicon glyphicon-trash" @click="removeFromCookBook()"></span>
                 </div>
