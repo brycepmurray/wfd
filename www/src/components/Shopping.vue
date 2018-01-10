@@ -13,11 +13,11 @@
                 <span class="glyphicon glyphicon-trash" @click="removeFromShopList(item)"></span></li> </h4>
            </div>
                 <h4 v-if="!user.name" class="col-md-6 text-left">
-                <li>8 dozen eggs<span class="glyphicon glyphicon-trash"></span></li> 
-                <li>1/2 pound pig<span class="glyphicon glyphicon-trash"></span></li> 
-                <li>Sour dough bread<span class="glyphicon glyphicon-trash"></span></li> 
-                <li>Parsley<span class="glyphicon glyphicon-trash"></span></li> 
-                <li>Apples<span class="glyphicon glyphicon-trash"></span></li> 
+                <li>8 dozen eggs</li> 
+                <li>1/2 pound pig</li> 
+                <li>Sour dough bread</li> 
+                <li>Parsley</li> 
+                <li>Apples</span></li> 
                 
             </h4>
         

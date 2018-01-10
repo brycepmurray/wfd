@@ -223,9 +223,6 @@
         width: 100%
     }
     
-    .wide {
-        width: 100%
-    }
     
     .card {
         padding: 15px;
@@ -258,12 +255,16 @@
         justify-content: center;
     }
     
+    .wide {
+        width: 100%
+    }
     .btn-warning {
         margin-top: 10px;
     }
     
     .btn-primary {
         margin-top: 10px;
+        
     }
     /* this is for the button-primary margin correction */
     
