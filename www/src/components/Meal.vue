@@ -1,7 +1,7 @@
 <template>
     <div class="meal">
-        <div class="col-lg-10 col-xs-8 text-center bryce">
-            <div @click="setActiveRecipe()" class="card col-lg-8" style="width: 28rem;" draggable="true" v-on:dragstart.capture="moving">
+        
+            <div @click="setActiveRecipe()" class="card col-xs-8" style="width: 28rem;" draggable="true" v-on:dragstart.capture="moving">
                 <div class="ft">
                     <span class="glyphicon glyphicon-trash" @click="removeFromCookBook()"></span>
                 </div>
@@ -16,7 +16,7 @@
                         <span class="glyphicon glyphicon-new-window"></span>
                     </a>
                     </button>
-                </div>
+            
             </div>
         </div>
     </div>
