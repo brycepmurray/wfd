@@ -99,7 +99,7 @@
         name: 'cookBook',
         data() {
             return {
-                day:{
+                day: {
                     name: "Sunday"
                 }
             }
@@ -108,23 +108,23 @@
             this.$store.dispatch('getCookBook', this.$route.params.id)
             this.$store.dispatch('getWeek')
         },
-        
+
         computed: {
             cookBook() {
                 return this.$store.state.cookBook
             },
-            activeRecipe(){
+            activeRecipe() {
                 return this.$store.state.activeRecipe
             },
-            days(){
+            days() {
                 return this.$store.state.week
             }
         },
 
         methods: {
 
-            
-           
+
+
             addToShopList(t) {
                 var item = {
                     description: t
@@ -236,7 +236,6 @@
         cursor: pointer;
         background-color: rgb(255, 255, 255);
         box-shadow: 5px 5px #333;
-        
     }
     
     .card-img-top {
@@ -356,7 +355,7 @@
         padding: 20px;
         text-align: center;
         vertical-align: middle;
-        font-weight: 300; 
+        font-weight: 300;
         font-size: 18px;
         text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
         border-right: 1px solid #C1C3D1;
