@@ -51,7 +51,7 @@
 
         <div class="row" id="main">
             <div v-for="meal in cookBook">
-            <div class="col-xs-3">
+            <div class="col-xs-4">
                         <Meal :mealprop="meal"></Meal>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
             </div>
             <div class="w3-sidebar w3-bar-block w3-card w3-animate-right" style="display:none" id="mySidebar">
                 <!-- begin calendar -->
-                <div class="col-xs-5 fixedYo ">
+                <div class="col-xs-4 fixedYo ">
                     <span @click="closeCal()" class="w3-bar-item w3-button w3-large glyphicon glyphicon-remove"></span>
                     <table class="table-fill">
                         <thead>
