@@ -166,10 +166,6 @@
         width: 28rem;
     }
     
-    #main {
-        margin-right: 36%;
-    }
-    
     #openNav {
         position: fixed;
         width: 75px;

@@ -6,7 +6,7 @@
 
                 <!-- Modal content-->
                 <div class="modal-content">
-                    <div class="modadl-header">
+                    <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h1 class="modal-title">
                             <strong>{{activeRecipe.recipe.label}}</strong>
@@ -223,7 +223,6 @@
         width: 100%
     }
     
-    
     .card {
         padding: 15px;
         margin: 25px;
@@ -258,13 +257,13 @@
     .wide {
         width: 100%
     }
+    
     .btn-warning {
         margin-top: 10px;
     }
     
     .btn-primary {
         margin-top: 10px;
-        
     }
     /* this is for the button-primary margin correction */
     
